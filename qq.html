@@ -1,0 +1,1883 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>城市天气预报_天气频道_腾讯网</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="Keywords" content="天气预报,天气,即时天气查询,天气在线,气候,气象,一周天气预报查询,上海天气,深圳天气,广州天气,北京天气,景点天气" />
+<meta name="description" content="腾讯天气频道为您提供全国3000多个城市和大多数国际个城市的最及时全面的天气预报,即时天气预报, 灾害预警、气象云图、旅游天气、台风、暴雨雪等气象信息，历史气候查询,未来三天预报,天气预报7天查询,重大天气新闻,气象知识,气象视频,为您提供全面精准的气象服" />
+<script>
+(function(){
+		/*
+		  腾讯网适配跳转
+		*/
+		var reWriteUrl = function(url){
+			if(url){
+				if(url.indexOf("/a/")>0){
+					var Splits = url.split("/"),siteName=Splits[2].split("qq.com")[0].split(".").length==3?siteName=Splits[2].split("qq.com")[0].split(".")[0]+"_"+Splits[2].split("qq.com")[0].split(".")[1]:siteName=Splits[2].split("qq.com")[0].split(".")[0],aids=url.split("/a/")[1].replace(/[^0-9]/g, ""),site="";
+					if(typeof siteName!=="undefined" && typeof aids!=="undefined"){
+						if(siteName.split(".").length>2){
+							var len = siteName.split(".").length;
+							for(var i=0;i<len;i++){
+									site+=siteName.split(".")[i];
+									if(i<len-2){
+										site+="_";
+									}
+							}
+						}else{
+							site=siteName.split(".")[0];
+						}
+						return "http://shipei.qq.com/c/"+siteName+"/"+aids+"#TencentContent";
+					}
+				}
+			}
+		};
+		var goToMobile = function(){
+				var Aarry = document.getElementsByTagName("a"),TmpArray=[];
+				for(var i=0;i<Aarry.length;i++){
+					TmpArray[i]=Aarry[i].href.toString();
+					if(TmpArray[i].split("/")[3]=="a"){
+						Aarry[i].href=reWriteUrl(TmpArray[i]);
+					}
+				}
+				
+		}
+		var mobileSietList={news:"news",photo:"photo",video:"video",view:"huati",finance:"finance",ent:"ent",sports:"sports",digi:"digi",mil:"mil",lady:"lady",auto:"auto",games:"games",house:"house"};
+		
+		if(/Android|webOS|iPhone|iPod|BlackBerry|SymbianOS/i.test(navigator.userAgent)){
+			/*底层页跳转*/
+			var url=window.location.href;
+			var pathname=window.location.pathname;
+			if(url.indexOf("/a/")>0){
+				try{
+					window.location.href=reWriteUrl(url);
+				}catch(e){}
+			}else{ // 频道首页跳转
+				if(window.location.href.indexOf("?mobile")<0){
+					var mobileUrl=window.location.hostname.split(".")[0];
+					if(/news|pp|video|view|finance|ent|sports|digi|mil|lady|auto|games|house/i.test(mobileUrl)){
+						try{
+							window.location.href='http://shipei.qq.com/iphone/m/'+mobileSietList[mobileUrl]+'/index.htm';
+						}catch(e){	
+						}
+					}
+				}
+			}
+			try{
+				document.addEventListener('DOMContentLoaded', goToMobile, false);
+			}catch(e){	
+			}
+		}
+})();
+
+</script>
+<script type="text/javascript" src="http://mat1.qq.com/js/speed_v1.9-min.js"></script><!--[if !IE]>|xGv00|9de77a0e7978bad0d18c84a64c2c75c5<![endif]-->
+<link href="http://mat1.gtimg.com/www/base/base.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://weather.news.qq.com/index2012/css/resultPageCss_v7.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="http://mat1.gtimg.com/joke/Koala/Qfast1.0.1.js" type="text/javascript"></script>
+<script src="http://mat1.gtimg.com/joke/Koala/Koala.min.1.3.3.js" type="text/javascript"></script>
+<meta name="author" content="annan"/>
+</head>
+<body>
+<!-- 全站迷你导航 开始 -->
+<style>
+/*全站迷你导航 v20120718 1.0.8 @austinjin*/
+body{font-family:"宋体","Arial Narrow",sans-serif;-webkit-text-size-adjust:100%;}
+#mini_nav_qq_wrap{width:100%;height:25px;background:url(http://mat1.gtimg.com/www/images/nav/mini_bg.png) top left repeat-x}
+#mini_nav_qq{width:960px;height:25px; margin:0 auto;padding:0;font-size:12px;font-family:"宋体","Arial Narrow",sans-serif;clear:both;}
+#mini_nav_qq div{color:#666;line-height:24px;}
+#mini_nav_qq .mini_nav_fl{float:left;}
+#mini_nav_qq ul,#mini_nav_qq li{margin:0;padding:0;list-style:none;}
+#mini_nav_qq .first{padding-left:4px;}
+#mini_nav_qq .first a{padding-right:13px;background:url(http://mat1.gtimg.com/www/images/nav/mini_arrow.png)  right -1px no-repeat;}
+#mini_nav_qq .end{border:none;}
+#mini_nav_qq ul{padding:7px 3px 0 0;}
+#mini_nav_qq li{float:left;padding:0 8px;*padding-top:1px;border-right:#ddd 1px solid;line-height:12px;color:#666;}
+#mini_nav_qq a{color:#666; text-decoration:none;}
+#mini_nav_qq a:visited{color:#666;}
+#mini_nav_qq a:hover{color:#666; text-decoration: underline;}
+</style>
+<div id="mini_nav_qq_wrap">
+<div id="mini_nav_qq">
+	<div class="mini_nav_fl" bossZone="miniNav">
+		<ul>
+			<li class="first"><a href="http://www.qq.com/" target="_blank" accesskey="1">腾讯网首页</a></li><li><a href="http://www.qq.com/map/" target="_blank">网站导航</a></li><li class="end"><a href="http://mail.qq.com/" target="_blank">邮箱</a></li>
+		</ul>
+	</div>
+	<style type="text/css">
+/*导航微博登录 v20120209 1.0.7 mblogin*/
+#site_nav_mblogin{float:right;height:25px;padding-right:8px;line-height:24px;color:#666;font-size:12px;font-family:"宋体","Arial Narrow",sans-serif;}
+#site_nav_mblogin div{float:left;}
+#site_nav_mblogin .mblog_logo{width:20px;height:24px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) -90px 5px no-repeat; }
+#site_nav_mblogin .mblog_logo span{display:none;}
+#site_nav_mblogin .mblog_login_info span{padding-right:12px;}
+#site_nav_mblogin .mblog_login_info em{font-family:Arial;font-style:normal;padding-right:12px;}
+#site_nav_mblogin .mblog_login_button span,#site_nav_mblogin .mblog_enter_button span{*padding-left:1px;_padding-left:1px;text-align:center;color:#fff;}
+#site_nav_mblogin .mblog_login_button,#site_nav_mblogin .mblog_enter_button{position:relative;z-index:10000;width:57px;height:17px;margin-top:2px;margin-right:12px;padding-top:2px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) 0 0 no-repeat;cursor:pointer;text-align:center;line-height:17px;overflow:visible;color:#fff;}
+#site_nav_mblogin .mblog_enter_button{display:none;}
+#site_nav_mblogin .mblog_login_text{*padding-top:1px;_padding-top:1px;}
+#site_nav_mblogin .mblog_loginout_text{display:none;*padding-top:1px;_padding-top:1px;}
+
+#site_nav_mblogin a{color:#666; text-decoration:none;}
+#site_nav_mblogin a:visited{color:#666;}
+#site_nav_mblogin a:hover{color:#666; text-decoration: underline;}
+#site_nav_mblogin .mblog_login_info em a,#site_nav_mblogin .mblog_login_info em a:visited,#site_nav_mblogin .mblog_login_info em a:hover{color:#0B3B8C}
+#site_nav_mblogin .mblog_login_info a.mbAtMe,#site_nav_mblogin .mblog_login_info a.mbAtMe:visited,#site_nav_mblogin .mblog_login_info a.mbAtMe:hover{color:#BD0A01;}
+#site_nav_mblogin .mblog_enter_button a,#site_nav_mblogin .mblog_enter_button a:visited,#site_nav_mblogin .mblog_enter_button a:hover{color:#fff;line-height:17px;}
+
+#site_nav_mblogin .mbCardUserInfo {position: absolute;z-index:999999;left:-160px; top:0;width:236px;margin-top: 26px; text-align:left;text-indent:0;overflow:visible;}
+#site_nav_mblogin .mbCardUserDetail div{line-height:18px;}
+#site_nav_mblogin .mbCardUserInfo{height:auto;padding:10px 24px 10px 10px;background:#ffffce;border:#f0e5ba 1px solid;color:#666;}
+#site_nav_mblogin .mbCardUserInfo .arrowBox{position:absolute;width:15px;height:8px;left:0;top:0;margin:-8px 0 0 180px;font-size:1px;line-height:1px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) 0 -30px no-repeat;celar:both;zoom:1;}
+#site_nav_mblogin .mbCardUserInfo .arrowBox div{font-size:1px;line-height:1px;}
+#site_nav_mblogin .mbCardUserInfo .mbClose {position:absolute;top:0;right:0;width:15px;height:15px;margin:4px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) 0 -45px no-repeat;font-size:1px;line-height:1px;cursor:pointer;}
+#site_nav_mblogin .mbCardUserInfo .mbClose span{display:none;}
+#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbTxt1,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbUserNick,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbFriends{color:#666;}
+#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg{padding-left:180px;text-align:left;}
+#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg a,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg a:visited{color:#2b4a78;text-decoration:underline;}
+
+#site_nav_mblogin .mbCardUserInfo {-moz-border-radius: 6px;-moz-box-shadow: 2px 2px 2px #f0e5ba;-webkit-border-radius: 6px;-webkit-box-shadow: 2px 2px 2px #f0e5ba;}
+
+
+/*=S 浮动层 */
+.share_layer { overflow:hidden; padding:7px; position:absolute; z-index:999999;zoom:1;font-size:12px; font-family:Arial, Sans-Serif; }
+.share_layer ul, .share_layer ul li { list-style-type:none; }
+.share_layer img { border:0 none; }
+.share_layer a { text-decoration:none; }
+.share_layer a:hover { text-decoration:underline; }
+.share_layer button,.share_layer label { cursor:pointer; border:0 none; }
+.share_layer input,.share_layer  button { font-size:12px; font-family:Arial, Sans-Serif; }
+.share_layer_main{ border:1px solid #b5c1ca; background-color:#FAFCFF; position:relative; z-index:5}
+.share_layer_title { height:24px; background:#EEF4F6 url(http://mat1.gtimg.com/www/images/nav/loginpop_tbg.png) repeat-x; cursor:move; border-bottom:1px solid #CED3E4; }
+.share_layer_title h3 { float:left; margin:0;padding:3px 0 0 12px; color:#666; font-size:13px;font-weight:normal; line-height:18px; overflow:hidden; font-family:Arial, Helvetica, sans-serif;}
+.share_layer_title .mblogo{ padding-left:24px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt1.png) -84px 6px no-repeat;}
+.share_layer .bt_close { background:url(http://imgcache.qq.com/qzonestyle/qzone_app/app_news_share_v1/pop_bg.png) no-repeat 0 -39px; width:9px; height:10px;cursor:pointer; position:absolute; right:10px; top:11px; z-index:5px;}
+.share_layer_cont a:link, .share_layer_cont a:visited { color:#5F5F5F; text-decoration:underline; }
+.share_layer_cont a:hover, .share_layer_cont a:active { color:#494949; }
+.share_layer_cont { color:#000000; background-color:#FAFCFF;}
+.share_layer_hint { color:#9E9E9E; font-style:normal; }
+.global_tip_button { text-align:center; clear:both; width:100%;}
+.bt_tip_sure, .bt_tip_cancel { background-image:url(http://imgcache.qq.com/qzonestyle/qzone_app/app_news_share_v1/pop_bg.png); background-repeat:no-repeat; background-position:0 -58px; font-size:12px; line-height:19px; width:48px; height:23px; margin-right:6px; *overflow:visible;
+_padding-top:3px; _line-height:12px; cursor:pointer; }
+*:lang(zh) .bt_tip_sure, .bt_tip_cancel {padding-top /*\**/:4px\9}
+.bt_tip_cancel { color:#4D637F; background-color:#F3F4F5; background-position:-54px -58px; }
+.icon_hint_warn, .icon_hint_succeed { background:transparent url(http://imgcache.qq.com/qzonestyle/qzone_app/app_news_share_v1/pop_bg.png) no-repeat; display:-moz-inline-stack; display:inline-block; height:15px; width:15px; vertical-align:middle; }
+.icon_hint_warn { background-position:-39px -37px; _vertical-align:-2px; }
+.icon_hint_succeed { background-position:-18px -37px; }
+.layer_popup { background-color:#FFFFFF; border:2px solid #6792bc; }
+.icon_hint_warn span, .icon_hint_succeed span { display:none; }
+.share_layer .bg {position:absolute;top:0;left:0;height:100%;padding:500px;zoom:1;}
+.share_layer .del_fri{font-weight:bold;display:-moz-inline-stack;display:inline-block;line-height:9px;width:11px;height:10px;position:absolute;top:6px;right:10px;cursor:pointer; font-family:"Comic Sans MS","Verdana", cursive; color:#99ADBA;}
+.share_layer .del_fri:hover{text-decoration:none; color:#666666;}
+.share_layer_title .none { display:none !important; }
+/*=E 浮动层 */
+</style>
+	<div id="site_nav_mblogin" class="site_nav_mblogin" bossZone="mbLogin">
+		<div class="mblog_logo"><span>腾讯微博蒲公英</span></div>
+		<div class="mblog_login_info" id="mblog_logined_info"></div>
+		<div class="mblog_login_button" id="mblog_login_button"><span>登录微博</span><div class="mbCardUserInfo" id="mbCarduserNotLogin" style="display: none;">
+				<div class="arrowBox"><div class="arrow"></div></div>
+				<div class="mbClose"><a href="#"><span>关闭</span></a></div>
+				<div class="mbCardUserDetail">
+					<div class="mbConTxt">
+						<span class="mbTxt1">加入微博，记录点滴，分享感动，握手明星</span>
+					</div>
+					<div class="mbReg"><a target="_blank" href="http://t.qq.com?pref=qqcom.toptips">开通微博</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="mblog_enter_button" id="mblog_enter_button"><span>进入微博</span></div>
+		<div class="mblog_login_text" id="mblog_login_text"><a href="http://t.qq.com/reg/index.php?pref=qqcom.mininav" target="_blank">注册</a></div>
+		<div class="mblog_loginout_text" id="mblog_logout_text"><a href="javascript:void(0)" target="_blank">退出</a></div>
+	</div>
+<script type="text/javascript">var MI = {};(function(b){var a=document.createElement("script");a.setAttribute("charset","utf-8");a.setAttribute("type","text/javascript");a.setAttribute("src",b);document.getElementsByTagName("head")[0].appendChild(a)})("http://mat1.gtimg.com/www/mb/js/portal/mi.MiniNav_110901V1.js");</script><!--[if !IE]>|xGv00|27910dc748ab979a10670313297c868c<![endif]-->
+</div>
+</div>
+<!--t20120606--><!--[if !IE]>|xGv00|178f0d1e9a4009a52fc3274d06729f47<![endif]-->
+<!-- 全站迷你导航 结束 -->
+<style>
+/*全站主导航*/
+#main_nav_qq{width:952px;height:42px;margin:0 auto;padding:7px 4px 6px 4px;font-size:12px;font-family:"宋体","Arial Narrow";clear:both;}
+#main_nav_qq ul,#main_nav_qq li{margin:0;padding:0;list-style:none;}
+#main_nav_qq a{color:#000; text-decoration:none;}
+#main_nav_qq a:visited{color:#000;}
+#main_nav_qq a:hover{color:#db0010; text-decoration: underline;}
+#main_nav_qq a.lchot{color:#db0010;}
+#main_nav_qq a.lchot:visited{color:#db0010;}
+#main_nav_qq .main{float:left;width:136px;padding:0 8px 0 14px;background:url(http://mat1.gtimg.com/www/images/nav/nav_2.png) right center no-repeat; text-align:center;}
+#main_nav_qq .main strong{padding-right:4px;}
+#main_nav_qq .w_1{padding-left:0;}
+#main_nav_qq .w_2{width:146px;}
+#main_nav_qq .w_6{width:73px;}
+#main_nav_qq .w_7{width:62px;padding-right:0;background:none;}
+#main_nav_qq ul{display:block; clear:both;zoom:1;}
+#main_nav_qq li{float:left;padding-right:8px;line-height:21px; background:none;}
+#main_nav_qq li.end{padding-right:0;}
+#main_nav_qq .en{font-family:Arial,Tahoma,Verdana,sans-serif;}
+#main_nav_qq .mblog{padding-right:11px;background:url(http://mat1.gtimg.com/www/iskin960/mblog_blog_w.png) right top no-repeat;}
+</style>
+<div id="main_nav_qq" bossZone="mainNav" role="navigation">
+	<div class="main w_1">
+			<ul>
+				<li><strong><a target="_self" href="http://news.qq.com/">新闻</a></strong></li>
+				<li><a target="_self" href="http://v.qq.com/">视频</a></li>
+				<li><a target="_self" href="http://pp.qq.com/">图片</a></li>
+				<li><a target="_self" href="http://view.news.qq.com/">评论</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://finance.qq.com/">财经</a></strong></li>
+				<li><a target="_self" href="http://finance.qq.com/stock/">股票</a></li>
+				<li><a target="_self" href="http://finance.qq.com/hk/">港股</a></li>
+				<li><a target="_self" href="http://finance.qq.com/fund/">基金</a></li>
+			</ul>
+	</div>
+	<div class="main">
+			<ul>
+				<li><strong><a target="_self" href="http://ent.qq.com/">娱乐</a></strong></li>
+				<li><a target="_self" href="http://ent.qq.com/star/">明星</a></li>
+				<li><a target="_self" href="http://ent.qq.com/movie/">电影</a></li>
+				<li><a target="_self" href="http://yue.qq.com/">音乐</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://sports.qq.com/">体育</a></strong></li>
+				<li><a target="_self" href="http://sports.qq.com/nba/" style="font-family:Tahoma;margin-right:1px;">NBA</a></li>
+
+				<li><a href="http://sports.qq.com/isocce/England.htm" target="_self">英超</a></li>
+				<li><a target="_self" href="http://sports.qq.com/lottery/">彩票</a></li>
+
+			</ul> 
+	</div>
+	<div class="main">
+			<ul>
+				<li><strong><a target="_self" href="http://auto.qq.com/">汽车</a></strong></li>
+				<li><a target="_self" href="http://data.auto.qq.com/car_brand/index.shtml">车型</a></li>
+				<li><a target="_self" href="http://house.qq.com/">房产</a></li>
+				<li><a target="_self" href="http://c.l.qq.com/lclick?seq=20120810000275&loc=hdjc">家居</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://tech.qq.com/">科技</a></strong></li>
+				<li><a target="_self" href="http://digi.tech.qq.com/">数码</a></li>
+				<li><a target="_self" href="http://digi.tech.qq.com/mobile/" class="lchot">手机</a></li>
+				<li><a target="_self" href="http://hea.qq.com">家电</a></li>
+			</ul> 
+	</div>
+	<div class="main">
+			<ul>
+				<li><strong><a target="_self" href="http://lady.qq.com/">女性</a></strong></li>
+				<li><a target="_self" href="http://health.qq.com/">健康</a></li>
+				<li><a target="_self" href="http://lady.qq.com/beauty/beauty.shtml">美容</a></li>
+				<li><a target="_self" href="http://baby.qq.com/">育儿</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://luxury.qq.com/">时尚</a></strong></li>
+				<li><a target="_self" href="http://www.paipai.com/">购物</a></li>
+				<li><a target="_self" href="http://trip.elong.com/">旅游</a></li>
+				<li><a target="_self" href="http://mag.book.qq.com">杂志</a></li>
+			</ul> 
+	</div>
+	<div class="main">
+			<ul>
+				<li><strong><a target="_self" href="http://book.qq.com/">读书</a></strong></li>
+				<li><a target="_self" href="http://edu.qq.com/">教育</a></li>
+				<li><a target="_self" href="http://yc.qq.com/">小说</a></li>
+				<li><a target="_self" href="http://abroad.qq.com/">出国</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://games.qq.com/">游戏</a></strong></li>
+				<li><a target="_self" href="http://comic.qq.com/">动漫</a></li>
+				<li><a target="_self" href="http://ac.qq.com">漫画</a></li>
+				<li><a target="_self" href="http://astro.lady.qq.com/">星座</a></li>
+			</ul> 
+	</div>
+	<div class="main w_6">
+			<ul>
+				<li><strong><a target="_self" href="http://blog.qq.com/">博客</a></strong></li>
+				<li><a target="_self" href="http://t.qq.com/?from=11">微博</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://mil.qq.com/mil_index.htm">军事</a></strong></li>
+				<li><a target="_self" href="http://bbs.qq.com/">论坛</a></li>
+			</ul> 
+	</div>
+	<div class="main w_7 end">
+			<ul>
+				<li><strong><a target="_self" href="http://gongyi.qq.com/">公益</a></strong></li>
+				<li class="end"><a target="_self" href="http://yiliao.qq.com/">医疗</a></li>
+			</ul>
+			<ul>
+				<li><strong><a target="_self" href="http://kid.qq.com/">儿童</a></strong></li>
+				<li class="end"><a target="_self" href="http://weather.news.qq.com/">天气</a></li>
+			</ul> 
+	</div>
+</div><!--[if !IE]>|xGv00|d7c9bba9510d7183ebaa16176736ed15<![endif]-->
+<!--FixiPad--><!--[if !IE]>|xGv00|600cec45d1ed702a059d5d2c47a23e8d<![endif]-->
+
+<!--导航广告 开始-->
+<div style="width:960px;margin:0 auto; ">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="960" height="90" align="center">
+  <param name="movie" value="http://mat1.gtimg.com/weather/flash/tianqi.tlgg.960.60960-90.2.swf" />
+  <param name="quality" value="high" />
+  <embed src="http://mat1.gtimg.com/weather/flash/tianqi.tlgg.960.60960-90.2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="960" height="90"></embed>
+</object>
+</div><!--[if !IE]>|xGv00|423b91f769f1fa12485db41ad1cdc779<![endif]-->
+<!--导航广告 结束-->
+
+
+<!--天气频道导航 开始-->
+<div class="weatherNav">
+  <div class="logo"><a title="腾讯天气" href="http://weather.news.qq.com/" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/weatherLogo.png" title="腾讯天气" alt="腾讯天气"></a>
+  <a href="http://c.l.qq.com/lclick?seq=20130326000223&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/elong.png"  title="艺龙" alt="艺龙"></a>
+  </div>
+  <div class="search">
+    <input type="text" class="searchTxt" value="输入地名、拼音均可" id="wSearch" name="">
+    <a href="javascript:void(0)" class="wSearchBtn" target="_blank" id="wSearchBtn"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/searchBtn.png" width="74" height="32"></a>
+    <ul id="sList">
+    </ul>
+    <div id="cityTabChooice" class="cityList" style="display:none;">
+      <div id="tab0">
+        <ul id="cardBtn0">
+          <li class="tabBtn">热门</li>
+          <li class="tabBtn">A-G</li>
+          <li class="tabBtn">H-L</li>
+          <li class="tabBtn">M-T</li>
+          <li class="tabBtn">W-Z</li>
+          <li class="tabBtn">国际</li>
+        </ul>
+        <div id="cardBody0">
+          <div class="tabBody" style="display: none; ">
+          <ul id="mCityhotCity">
+            <li><a id="nCity01010101" href="javascript:void(0)" target="_blank" name="北京市">北京</a></li>
+            <li><a id="nCity01012601" href="javascript:void(0)" target="_blank" name="上海市">上海</a></li>
+            <li><a id="nCity01013307" href="javascript:void(0)" target="_blank" name="昆明市">昆明</a></li>
+            <li><a id="nCity01013401" href="javascript:void(0)" target="_blank" name="杭州市">杭州</a></li>
+            <li><a id="nCity01010704" href="javascript:void(0)" target="_blank" name="广州市">广州</a></li>
+            <li><a id="nCity01012703" href="javascript:void(0)" target="_blank" name="成都市">成都</a></li>
+            <li><a id="nCity01012507" href="javascript:void(0)" target="_blank" name="西安市">西安</a></li>
+            <li><a id="nCity01011704" href="javascript:void(0)" target="_blank" name="南京市">南京</a></li>
+            <li><a id="nCity01010715" href="javascript:void(0)" target="_blank" name="深圳市">深圳</a></li>
+            <li><a id="nCity01010401" href="javascript:void(0)" target="_blank" name="重庆市">重庆</a></li>
+            <li><a id="nCity01011502" href="javascript:void(0)" target="_blank" name="长沙市">长沙</a></li>
+            <li><a id="nCity01011912" href="javascript:void(0)" target="_blank" name="沈阳市">沈阳</a></li>
+            <li><a id="nCity01010508" href="javascript:void(0)" target="_blank" name="厦门市">厦门</a></li>
+            <li><a id="nCity01011410" href="javascript:void(0)" target="_blank" name="武汉市">武汉</a></li>
+            <li><a id="nCity01011008" href="javascript:void(0)" target="_blank" name="海口市">海口</a></li>
+            <li><a id="nCity01013213" href="javascript:void(0)" target="_blank" name="乌鲁木齐">乌鲁木齐</a></li>
+            <li><a id="nCity01012310" href="javascript:void(0)" target="_blank" name="青岛市">青岛</a></li>
+            <li><a id="nCity01011904" href="javascript:void(0)" target="_blank" name="大连市">大连</a></li>
+            <li><a id="nCity01011303" href="javascript:void(0)" target="_blank" name="哈尔滨市">哈尔滨</a></li>
+            <li><a id="nCity01011014" href="javascript:void(0)" target="_blank" name="三亚市">三亚</a></li>
+            <li><a id="nCity01011603" href="javascript:void(0)" target="_blank" name="长春市">长春</a></li>
+            <li><a id="nCity01010811" href="javascript:void(0)" target="_blank" name="南宁市">南宁</a></li>
+            <li><a id="nCity01010903" href="javascript:void(0)" target="_blank" name="贵阳市">贵阳</a></li>
+            <li><a id="nCity01010501" href="javascript:void(0)" target="_blank" name="福州市">福州</a></li>
+            <li><a id="nCity01011216" href="javascript:void(0)" target="_blank" name="郑州市">郑州</a></li>
+            <li><a id="nCity01012305" href="javascript:void(0)" target="_blank" name="济南市">济南</a></li>
+            <li><a id="nCity01010806" href="javascript:void(0)" target="_blank" name="桂林市">桂林</a></li>
+            <li><a id="nCity01012901" href="javascript:void(0)" target="_blank" name="天津市">天津</a></li>
+            <li><a id="nCity01012408" href="javascript:void(0)" target="_blank" name="太原市">太原</a></li>
+            <li><a id="nCity01011806" href="javascript:void(0)" target="_blank" name="南昌市">南昌</a></li>
+            <li><a id="nCity01013003" href="javascript:void(0)" target="_blank" name="拉萨市">拉萨</a></li>
+            <li><a id="nCity01012207" href="javascript:void(0)" target="_blank" name="西宁市">西宁</a></li>
+            <li><a id="nCity01013101" href="javascript:void(0)" target="_blank" name="香港">香港</a></li>
+            <li><a id="nCity01010301" href="javascript:void(0)" target="_blank" name="澳门">澳门</a></li>
+            <li><a id="nCity01012801" href="javascript:void(0)" target="_blank" name="台北市">台北</a></li>
+          </ul>
+        </div>
+
+
+        <div class="tabBody" style="display: none; ">
+          <ul id="mCityA_G">
+            <li><a id="mCity01010201" href="javascript:void(0)" target="_blank" name="安庆市">安庆</a></li>
+            <li><a id="mCity01013202" href="javascript:void(0)" target="_blank" name="阿勒泰市">阿勒泰</a></li>
+            <li><a id="mCity01012501" href="javascript:void(0)" target="_blank" name="安康市">安康</a></li>
+            <li><a id="mCity01013201" href="javascript:void(0)" target="_blank" name="阿克苏市">阿克苏</a></li>
+            <li><a id="mCity01011602" href="javascript:void(0)" target="_blank" name="白山市">白山</a></li>
+            <li><a id="mCity01012001" href="javascript:void(0)" target="_blank" name="包头市">包头</a></li>
+            <li><a id="mCity01010802" href="javascript:void(0)" target="_blank" name="北海市">北海</a></li>
+            <li><a id="mCity01010101" href="javascript:void(0)" target="_blank" name="北京市">北京</a></li>
+            <li><a id="mCity01010801" href="javascript:void(0)" target="_blank" name="百色市">百色</a></li>
+            <li><a id="mCity01013301" href="javascript:void(0)" target="_blank" name="保山市">保山</a></li>
+            <li><a id="mCity01012401" href="javascript:void(0)" target="_blank" name="长治市">长治</a></li>
+            <li><a id="mCity01011603" href="javascript:void(0)" target="_blank" name="长春市">长春</a></li>
+            <li><a id="mCity01011701" href="javascript:void(0)" target="_blank" name="常州市">常州</a></li>
+            <li><a id="mCity01013002" href="javascript:void(0)" target="_blank" name="昌都市">昌都</a></li>
+            <li><a id="mCity01011903" href="javascript:void(0)" target="_blank" name="朝阳市">朝阳</a></li>
+            <li><a id="mCity01011501" href="javascript:void(0)" target="_blank" name="常德市">常德</a></li>
+            <li><a id="mCity01012703" href="javascript:void(0)" target="_blank" name="成都市">成都</a></li>
+            <li><a id="mCity01010401" href="javascript:void(0)" target="_blank" name="重庆市">重庆</a></li>
+            <li><a id="mCity01011502" href="javascript:void(0)" target="_blank" name="长沙市">长沙</a></li>
+            <li><a id="mCity01012002" href="javascript:void(0)" target="_blank" name="赤峰市">赤峰</a></li>
+            <li><a id="mCity01012402" href="javascript:void(0)" target="_blank" name="大同市">大同</a></li>
+            <li><a id="mCity01011904" href="javascript:void(0)" target="_blank" name="大连市">大连</a></li>
+            <li><a id="mCity01012303" href="javascript:void(0)" target="_blank" name="东营市">东营</a></li>
+            <li><a id="mCity01011301" href="javascript:void(0)" target="_blank" name="大庆市">大庆</a></li>
+            <li><a id="mCity01011905" href="javascript:void(0)" target="_blank" name="丹东市">丹东</a></li>
+            <li><a id="mCity01013303" href="javascript:void(0)" target="_blank" name="大理市">大理</a></li>
+            <li><a id="mCity0101060602" href="javascript:void(0)" target="_blank" name="敦煌市">敦煌</a></li>
+            <li><a id="mCity01012003" href="javascript:void(0)" target="_blank" name="鄂尔多斯市">鄂尔多斯</a></li>
+            <li><a id="mCity01011402" href="javascript:void(0)" target="_blank" name="恩施市">恩施</a></li>
+            <li><a id="mCity01010501" href="javascript:void(0)" target="_blank" name="福州市">福州</a></li>
+            <li><a id="mCity01010207" href="javascript:void(0)" target="_blank" name="阜阳市">阜阳</a></li>
+            <li><a id="mCity01010903" href="javascript:void(0)" target="_blank" name="贵阳市">贵阳</a></li>
+            <li><a id="mCity01010806" href="javascript:void(0)" target="_blank" name="桂林市">桂林</a></li>
+            <li><a id="mCity01010704" href="javascript:void(0)" target="_blank" name="广州市">广州</a></li>
+            <li><a id="mCity01012708" href="javascript:void(0)" target="_blank" name="广元市">广元</a></li>
+          </ul>
+        </div>
+         <div class="tabBody" style="display: none; ">
+          <ul id="mCityH_L">
+            <li><a id="mCity01012004" href="javascript:void(0)" target="_blank" name="呼和浩特市">呼和浩特</a></li>
+            <li><a id="mCity01013206" href="javascript:void(0)" target="_blank" name="哈密市">哈密</a></li>
+            <li><a id="mCity01011305" href="javascript:void(0)" target="_blank" name="黑河市">黑河</a></li>
+            <li><a id="mCity0101200507" href="javascript:void(0)" target="_blank" name="海拉尔市">海拉尔</a></li>
+            <li><a id="mCity01011303" href="javascript:void(0)" target="_blank" name="哈尔滨市">哈尔滨</a></li>
+            <li><a id="mCity01011008" href="javascript:void(0)" target="_blank" name="海口市">海口</a></li>
+            <li><a id="mCity01010211" href="javascript:void(0)" target="_blank" name="黄山市">黄山</a></li>
+            <li><a id="mCity01013401" href="javascript:void(0)" target="_blank" name="杭州市">杭州</a></li>
+            <li><a id="mCity01011104" href="javascript:void(0)" target="_blank" name="邯郸市">邯郸</a></li>
+            <li><a id="mCity01010208" href="javascript:void(0)" target="_blank" name="合肥市">合肥</a></li>
+            <li><a id="mCity0101250906" href="javascript:void(0)" target="_blank" name="黄龙">黄龙</a></li>
+            <li><a id="mCity01012503" href="javascript:void(0)" target="_blank" name="汉中市">汉中</a></li>
+            <li><a id="mCity01013207" href="javascript:void(0)" target="_blank" name="和田市">和田</a></li>
+            <li><a id="mCity0101050606" href="javascript:void(0)" target="_blank" name="晋江市">晋江</a></li>
+            <li><a id="mCity01011909" href="javascript:void(0)" target="_blank" name="锦州市">锦州</a></li>
+            <li><a id="mCity01011804" href="javascript:void(0)" target="_blank" name="景德镇市">景德镇</a></li>
+            <li><a id="mCity01010604" href="javascript:void(0)" target="_blank" name="嘉峪关市">嘉峪关</a></li>
+            <li><a id="mCity0101180305" href="javascript:void(0)" target="_blank" name="井冈山市">井冈山</a></li>
+            <li><a id="mCity01012306" href="javascript:void(0)" target="_blank" name="济宁市">济宁</a></li>
+            <li><a id="mCity01011805" href="javascript:void(0)" target="_blank" name="九江市">九江</a></li>
+            <li><a id="mCity01011307" href="javascript:void(0)" target="_blank" name="佳木斯市">佳木斯</a></li>
+            <li><a id="mCity01012305" href="javascript:void(0)" target="_blank" name="济南市">济南</a></li>
+            <li><a id="mCity01013208" href="javascript:void(0)" target="_blank" name="喀什市">喀什</a></li>
+            <li><a id="mCity01013307" href="javascript:void(0)" target="_blank" name="昆明市">昆明</a></li>
+            <li><a id="mCity0101270610" href="javascript:void(0)" target="_blank" name="康定">康定</a></li>
+            <li><a id="mCity01013209" href="javascript:void(0)" target="_blank" name="克拉玛依市">克拉玛依</a></li>
+            <li><a id="mCity0101320304" href="javascript:void(0)" target="_blank" name="库尔勒市">库尔勒</a></li>
+            <li><a id="mCity0101320105" href="javascript:void(0)" target="_blank" name="库车市">库车</a></li>
+            <li><a id="mCity01010607" href="javascript:void(0)" target="_blank" name="兰州市">兰州</a></li>
+            <li><a id="mCity01011206" href="javascript:void(0)" target="_blank" name="洛阳市">洛阳</a></li>
+            <li><a id="mCity01013308" href="javascript:void(0)" target="_blank" name="丽江市">丽江</a></li>
+            <li><a id="mCity01010810" href="javascript:void(0)" target="_blank" name="柳州市">柳州</a></li>
+            <li><a id="mCity01012711" href="javascript:void(0)" target="_blank" name="泸州市">泸州</a></li>
+            <li><a id="mCity01011703" href="javascript:void(0)" target="_blank" name="连云港市">连云港</a></li>
+            <li><a id="mCity01013003" href="javascript:void(0)" target="_blank" name="拉萨市">拉萨</a></li>
+          </ul>
+        </div>
+
+       <div class="tabBody" style="display: none; ">
+          <ul id="mCityM_T">
+            <li><a id="mCity01011308" href="javascript:void(0)" target="_blank" name="牡丹江市">牡丹江</a></li>
+            <li><a id="mCity0101200508" href="javascript:void(0)" target="_blank" name="满洲里市">满洲里</a></li>
+            <li><a id="mCity01012713" href="javascript:void(0)" target="_blank" name="绵阳市">绵阳</a></li>
+            <li><a id="mCity01010710" href="javascript:void(0)" target="_blank" name="梅县市">梅县</a></li>
+            <li><a id="mCity0101130202" href="javascript:void(0)" target="_blank" name="漠河">漠河</a></li>
+            <li><a id="mCity01011704" href="javascript:void(0)" target="_blank" name="南京市">南京</a></li>
+            <li><a id="mCity01012714" href="javascript:void(0)" target="_blank" name="南充市">南充</a></li>
+            <li><a id="mCity01010811" href="javascript:void(0)" target="_blank" name="南宁市">南宁</a></li>
+            <li><a id="mCity01011207" href="javascript:void(0)" target="_blank" name="南阳市">南阳</a></li>
+            <li><a id="mCity01011705" href="javascript:void(0)" target="_blank" name="南通市">南通</a></li>
+            <li><a id="mCity01011806" href="javascript:void(0)" target="_blank" name="南昌市">南昌</a></li>
+            <li><a id="mCity01013406" href="javascript:void(0)" target="_blank" name="宁波市">宁波</a></li>
+            <li><a id="mCity01012716" href="javascript:void(0)" target="_blank" name="攀枝花市">攀枝花</a></li>
+            <li><a id="mCity01013407" href="javascript:void(0)" target="_blank" name="衢州市">衢州</a></li>
+            <li><a id="mCity01011107" href="javascript:void(0)" target="_blank" name="秦皇岛市">秦皇岛</a></li>
+            <li><a id="mCity01010611" href="javascript:void(0)" target="_blank" name="庆阳市">庆阳</a></li>
+            <li><a id="mCity0101320306" href="javascript:void(0)" target="_blank" name="且末县">且末</a></li>
+            <li><a id="mCity01011309" href="javascript:void(0)" target="_blank" name="齐齐哈尔市">齐齐哈尔</a></li>
+            <li><a id="mCity01012310" href="javascript:void(0)" target="_blank" name="青岛市">青岛</a></li>
+            <li><a id="mCity01010712" href="javascript:void(0)" target="_blank" name="汕头市">汕头</a></li>
+            <li><a id="mCity01010715" href="javascript:void(0)" target="_blank" name="深圳市">深圳</a></li>
+            <li><a id="mCity01011108" href="javascript:void(0)" target="_blank" name="石家庄市">石家庄</a></li>
+            <li><a id="mCity01011014" href="javascript:void(0)" target="_blank" name="三亚市">三亚</a></li>
+            <li><a id="mCity01011912" href="javascript:void(0)" target="_blank" name="沈阳市">沈阳</a></li>
+            <li><a id="mCity01012601" href="javascript:void(0)" target="_blank" name="上海市">上海</a></li>
+            <li><a id="mCity01010908" href="javascript:void(0)" target="_blank" name="铜仁市">铜仁</a></li>
+            <li><a id="mCity01013211" href="javascript:void(0)" target="_blank" name="塔城市">塔城</a></li>
+            <li><a id="mCity0101330105" href="javascript:void(0)" target="_blank" name="腾冲">腾冲</a></li>
+            <li><a id="mCity01013409" href="javascript:void(0)" target="_blank" name="台州市">台州</a></li>
+            <li><a id="mCity01010612" href="javascript:void(0)" target="_blank" name="天水市">天水</a></li>
+            <li><a id="mCity01012901" href="javascript:void(0)" target="_blank" name="天津市">天津</a></li>
+            <li><a id="mCity01012006" href="javascript:void(0)" target="_blank" name="通辽市">通辽</a></li>
+            <li><a id="mCity01012312" href="javascript:void(0)" target="_blank" name="泰安市">泰安</a></li>
+            <li><a id="mCity01012408" href="javascript:void(0)" target="_blank" name="太原市">太原</a></li>
+            <li><a id="mCity01011109" href="javascript:void(0)" target="_blank" name="唐山市">唐山</a></li>
+          </ul>
+        </div>
+
+
+
+        <div class="tabBody" style="display: none; ">
+          <ul id="mCityW_Z">
+            <li><a id="mCity01012313" href="javascript:void(0)" target="_blank" name="威海市">威海</a></li>
+            <li><a id="mCity01011410" href="javascript:void(0)" target="_blank" name="武汉市">武汉</a></li>
+            <li><a id="mCity01010813" href="javascript:void(0)" target="_blank" name="北京市">梧州</a></li>
+            <li><a id="mCity0101331306" href="javascript:void(0)" target="_blank" name="文山市">文山</a></li>
+            <li><a id="mCity01011709" href="javascript:void(0)" target="_blank" name="无锡市">无锡</a></li>
+            <li><a id="mCity01012314" href="javascript:void(0)" target="_blank" name="潍坊市">潍坊</a></li>
+            <li><a id="mCity0101050308" href="javascript:void(0)" target="_blank" name="武夷山市">武夷山</a></li>
+            <li><a id="mCity01011016" href="javascript:void(0)" target="_blank" name="万宁市">万宁</a></li>
+            <li><a id="mCity01013410" href="javascript:void(0)" target="_blank" name="温州市">温州</a></li>
+            <li><a id="mCity01013213" href="javascript:void(0)" target="_blank" name="乌鲁木齐市">乌鲁木齐</a></li>
+            <li><a id="mCity0101040130" href="javascript:void(0)" target="_blank" name="万州区">万州</a></li>
+            <li><a id="mCity01012007" href="javascript:void(0)" target="_blank" name="乌海市">乌海</a></li>
+            <li><a id="mCity0101090707" href="javascript:void(0)" target="_blank" name="兴义市">兴义</a></li>
+            <li><a id="mCity0101271013" href="javascript:void(0)" target="_blank" name="西昌市">西昌</a></li>
+            <li><a id="mCity01010508" href="javascript:void(0)" target="_blank" name="厦门市">厦门</a></li>
+            <li><a id="mCity0101330503" href="javascript:void(0)" target="_blank" name="香格里拉">香格里拉</a></li>
+            <li><a id="mCity01012507" href="javascript:void(0)" target="_blank" name="西安市">西安</a></li>
+            <li><a id="mCity0101141207" href="javascript:void(0)" target="_blank" name="襄阳市">襄阳</a></li>
+            <li><a id="mCity01012207" href="javascript:void(0)" target="_blank" name="西宁市">西宁</a></li>
+            <li><a id="mCity0101290118" href="javascript:void(0)" target="_blank" name="西青区">西青</a></li>
+            <li><a id="mCity01011710" href="javascript:void(0)" target="_blank" name="徐州市">徐州</a></li>
+            <li><a id="mCity0101340408" href="javascript:void(0)" target="_blank" name="义乌市">义乌</a></li>
+            <li><a id="mCity01011511" href="javascript:void(0)" target="_blank" name="永州市">永州</a></li>
+            <li><a id="mCity01012510" href="javascript:void(0)" target="_blank" name="榆林市">榆林</a></li>
+            <li><a id="mCity01012509" href="javascript:void(0)" target="_blank" name="延安市">延安</a></li>
+            <li><a id="mCity01012411" href="javascript:void(0)" target="_blank" name="运城市">运城</a></li>
+            <li><a id="mCity01012315" href="javascript:void(0)" target="_blank" name="烟台市">烟台</a></li>
+            <li><a id="mCity01012104" href="javascript:void(0)" target="_blank" name="银川市">银川</a></li>
+            <li><a id="mCity01011414" href="javascript:void(0)" target="_blank" name="宜昌市">宜昌</a></li>
+            <li><a id="mCity01012719" href="javascript:void(0)" target="_blank" name="宜宾市">宜宾</a></li>
+            <li><a id="mCity01011711" href="javascript:void(0)" target="_blank" name="盐城市">盐城</a></li>
+            <li><a id="mCity0101160908" href="javascript:void(0)" target="_blank" name="延吉市">延吉</a></li>
+            <li><a id="mCity01012208" href="javascript:void(0)" target="_blank" name="玉树市">玉树</a></li>
+            <li><a id="mCity0101321408" href="javascript:void(0)" target="_blank" name="伊宁市">伊宁</a></li>
+            <li><a id="mCity01010721" href="javascript:void(0)" target="_blank" name="珠海市">珠海</a></li>
+          </ul>
+        </div>
+        <div class="tabBody" style="display: none; ">
+          <ul id="mCityCOU">
+            <li><a id="mCity03010601" href="javascript:void(0)" target="_blank" name="埃德蒙顿市">埃德蒙顿</a></li>
+            <li><a id="mCity02070101" href="javascript:void(0)" target="_blank" name="阿姆斯特丹市">阿姆斯特丹</a></li>
+            <li><a id="mCity02210101" href="javascript:void(0)" target="_blank" name="雅典市">雅典</a></li>
+            <li><a id="mCity01300101" href="javascript:void(0)" target="_blank" name="曼谷市">曼谷</a></li>
+            <li><a id="mCity02030101" href="javascript:void(0)" target="_blank" name="柏林市">柏林</a></li>
+            <li><a id="mCity02010101" href="javascript:void(0)" target="_blank" name="布鲁塞尔市">布鲁塞尔</a></li>
+            <li><a id="mCity05010101" href="javascript:void(0)" target="_blank" name="开罗市">开罗</a></li>
+            <li><a id="mCity01150201" href="javascript:void(0)" target="_blank" name="喀布尔">喀布尔</a></li>
+            <li><a id="mCity05120201" href="javascript:void(0)" target="_blank" name="开普敦">开普敦</a></li>
+            <li><a id="mCity03060101" href="javascript:void(0)" target="_blank" name="墨西哥城">墨西哥城</a></li>
+            <li><a id="mCity02020101" href="javascript:void(0)" target="_blank" name="哥本哈根">哥本哈根</a></li>
+            <li><a id="mCity05130101" href="javascript:void(0)" target="_blank" name="达喀尔">达喀尔</a></li>
+            <li><a id="mCity02090201" href="javascript:void(0)" target="_blank" name="日内瓦">日内瓦</a></li>
+            <li><a id="mCity01380101" href="javascript:void(0)" target="_blank" name="河内">河内</a></li>
+            <li><a id="mCity01160201" href="javascript:void(0)" target="_blank" name="伊斯兰堡">伊斯兰堡</a></li>
+            <li><a id="mCity01370101" href="javascript:void(0)" target="_blank" name="雅加达">雅加达</a></li>
+            <li><a id="mCity01240101" href="javascript:void(0)" target="_blank" name="吉隆坡">吉隆坡</a></li>
+            <li><a id="mCity02230101" href="javascript:void(0)" target="_blank" name="伦敦市">伦敦</a></li>
+            <li><a id="mCity02100101" href="javascript:void(0)" target="_blank" name="马德里">马德里</a></li>
+            <li><a id="mCity02040101" href="javascript:void(0)" target="_blank" name="莫斯科">莫斯科</a></li>
+            <li><a id="mCity05020101" href="javascript:void(0)" target="_blank" name="内罗毕市">内罗毕</a></li>
+            <li><a id="mCity01140201" href="javascript:void(0)" target="_blank" name="新德里">新德里</a></li>
+            <li><a id="mCity03010101" href="javascript:void(0)" target="_blank" name="渥太华">渥太华</a></li>
+            <li><a id="mCity02050201" href="javascript:void(0)" target="_blank" name="巴黎">巴黎</a></li>
+            <li><a id="mCity01180101" href="javascript:void(0)" target="_blank" name="平壤市">平壤</a></li>
+            <li><a id="mCity02220301" href="javascript:void(0)" target="_blank" name="罗马">罗马</a></li>
+            <li><a id="mCity01210101" href="javascript:void(0)" target="_blank" name="首尔市">首尔</a></li>
+            <li><a id="mCity01330101" href="javascript:void(0)" target="_blank" name="新加坡市">新加坡</a></li>
+            <li><a id="mCity05030101" href="javascript:void(0)" target="_blank" name="卡萨布兰卡">卡萨布兰卡</a></li>
+            <li><a id="mCity01360101" href="javascript:void(0)" target="_blank" name="德黑兰">德黑兰</a></li>
+            <li><a id="mCity01250101" href="javascript:void(0)" target="_blank" name="乌兰巴托">乌兰巴托</a></li>
+            <li><a id="mCity02120101" href="javascript:void(0)" target="_blank" name="维也纳">维也纳</a></li>
+            <li><a id="mCity01230101" href="javascript:void(0)" target="_blank" name="万象">万象</a></li>
+            <li><a id="mCity03051201" href="javascript:void(0)" target="_blank" name="华盛顿">华盛顿</a></li>
+            <li><a id="mCity01260101" href="javascript:void(0)" target="_blank" name="仰光">仰光</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="weatherCity">
+    <ul>
+      <li class="wItem"> <a title="添加城市" href="javascript:void(0)" class="wAdd" onClick="showPop.showAddCity('addCityPop','addCityPopBtn','0')" id="addCityBtn0">添加城市</a>
+        <div class="otherCityInfo" id="wCityInfo0" style="display:none;"><span id="addcityName0"></span><br>
+          <strong><span id="addLowerWd0"></span>℃～<span id="addHighWd0"></span>℃</strong> <span id="addWeatherWd0"></span><br>
+          <span id="addWd0"></span> <strong id="addWp0"></strong><a  title="删除" href="javascript:void(0)" class="close" onclick="showPop.delCityWInfo('0')"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/addCloseBtn.png" width="15" height="12"></a></div>
+      </li>
+      <li class="wItem"> <a title="添加城市" href="javascript:void(0)" class="wAdd" onClick="showPop.showAddCity('addCityPop','addCityPopBtn','1')" id="addCityBtn1">添加城市</a>
+        <div class="otherCityInfo" id="wCityInfo1" style="display:none;"><span id="addcityName1"></span><br>
+          <strong><span id="addLowerWd1"></span>℃～<span id="addHighWd1"></span>℃</strong> <span id="addWeatherWd1"></span><br>
+          <span id="addWd1"></span> <strong id="addWp1"></strong><a  title="删除" href="javascript:void(0)" class="close" onclick="showPop.delCityWInfo('1')"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/addCloseBtn.png" width="15" height="12"></a></div>
+      </li>
+    </ul>
+    <div id="addCityPop" class="addCityPop" style="display:none;">
+      <div class="addCityPopInner">
+        <div class="cont">
+          <div class="hd">
+            <h3>添加城市</h3>
+            <a title="取消" href="javascript:void(0)" class="pcloseBtn" onclick="showPop.hideAddCity('addCityPop')"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/popClose.png" width="20" height="20" ></a> </div>
+          <div class="bd">
+            <input type="text" value="输入地名、拼音均可" class="popSearch" id="popSearchInput" name="" >
+            <ul id="addCityPopList">
+            </ul>
+          </div>
+          <div class="ft"><a title="添加城市" href="javascript:void(0)" class="addBtn" id="addCityPopBtn">添加</a><a title="取消" href="javascript:void(0)" class="cancelBtn" onclick="showPop.hideAddCity('addCityPop')">取消</a></div>
+        </div>
+        <div class="cover"></div>
+      </div>
+    </div>
+    <div class="cityList" style="display:none;" id="addCityPopTab">
+      <div id="poptab0">
+        <ul id="popcardBtn0">
+          <li class="tabBtn">热门</li>
+          <li class="tabBtn">A-G</li>
+          <li class="tabBtn">H-L</li>
+          <li class="tabBtn">M-T</li>
+          <li class="tabBtn">W-Z</li>
+          <li class="tabBtn">国际</li>
+        </ul>
+        <div id="popcardBody0">
+                <div class="tabBody" style="display: none; ">
+          <ul id="aCityhotCity">
+            <li><a id="bCity01010101" href="javascript:void(0)" name="北京市">北京</a></li>
+            <li><a id="bCity01012601" href="javascript:void(0)" name="上海市">上海</a></li>
+            <li><a id="bCity01013307" href="javascript:void(0)" name="昆明市">昆明</a></li>
+            <li><a id="bCity01013401" href="javascript:void(0)" name="杭州市">杭州</a></li>
+            <li><a id="bCity01010704" href="javascript:void(0)" name="广州市">广州</a></li>
+            <li><a id="bCity01012703" href="javascript:void(0)" name="成都市">成都</a></li>
+            <li><a id="bCity01012507" href="javascript:void(0)" name="西安市">西安</a></li>
+            <li><a id="bCity01011704" href="javascript:void(0)" name="南京市">南京</a></li>
+            <li><a id="bCity01010715" href="javascript:void(0)" name="深圳市">深圳</a></li>
+            <li><a id="bCity01010401" href="javascript:void(0)" name="重庆市">重庆</a></li>
+            <li><a id="bCity01011502" href="javascript:void(0)" name="长沙市">长沙</a></li>
+            <li><a id="bCity01011912" href="javascript:void(0)" name="沈阳市">沈阳</a></li>
+            <li><a id="bCity01010508" href="javascript:void(0)" name="厦门市">厦门</a></li>
+            <li><a id="bCity01011410" href="javascript:void(0)" name="武汉市">武汉</a></li>
+            <li><a id="bCity01011008" href="javascript:void(0)" name="海口市">海口</a></li>
+            <li><a id="bCity01013213" href="javascript:void(0)" name="乌鲁木齐">乌鲁木齐</a></li>
+            <li><a id="bCity01012310" href="javascript:void(0)" name="青岛市">青岛</a></li>
+            <li><a id="bCity01011904" href="javascript:void(0)" name="大连市">大连</a></li>
+            <li><a id="bCity01011303" href="javascript:void(0)" name="哈尔滨市">哈尔滨</a></li>
+            <li><a id="bCity01011014" href="javascript:void(0)" name="三亚市">三亚</a></li>
+            <li><a id="bCity01011603" href="javascript:void(0)" name="长春市">长春</a></li>
+            <li><a id="bCity01010811" href="javascript:void(0)" name="南宁市">南宁</a></li>
+            <li><a id="bCity01010903" href="javascript:void(0)" name="贵阳市">贵阳</a></li>
+            <li><a id="bCity01010501" href="javascript:void(0)" name="福州市">福州</a></li>
+            <li><a id="bCity01011216" href="javascript:void(0)" name="郑州市">郑州</a></li>
+            <li><a id="bCity01012305" href="javascript:void(0)" name="济南市">济南</a></li>
+            <li><a id="bCity01010806" href="javascript:void(0)" name="桂林市">桂林</a></li>
+            <li><a id="bCity01012901" href="javascript:void(0)" name="天津市">天津</a></li>
+            <li><a id="bCity01012408" href="javascript:void(0)" name="太原市">太原</a></li>
+            <li><a id="bCity01011806" href="javascript:void(0)" name="南昌市">南昌</a></li>
+            <li><a id="bCity01013003" href="javascript:void(0)" name="拉萨市">拉萨</a></li>
+            <li><a id="bCity01012207" href="javascript:void(0)" name="西宁市">西宁</a></li>
+            <li><a id="bCity01013101" href="javascript:void(0)" name="香港">香港</a></li>
+            <li><a id="bCity01010301" href="javascript:void(0)" name="澳门">澳门</a></li>
+            <li><a id="bCity01012801" href="javascript:void(0)" name="台北市">台北</a></li>
+          </ul>
+        </div>
+        <div class="tabBody" style="display: none; ">
+          <ul id="aCityA_G">
+            <li><a id="aCity01010201" href="javascript:void(0)" name="安庆市">安庆</a></li>
+            <li><a id="aCity01013202" href="javascript:void(0)" name="阿勒泰市">阿勒泰</a></li>
+            <li><a id="aCity01012501" href="javascript:void(0)" name="安康市">安康</a></li>
+            <li><a id="aCity01013201" href="javascript:void(0)" name="阿克苏市">阿克苏</a></li>
+            <li><a id="aCity01011602" href="javascript:void(0)" name="白山市">白山</a></li>
+            <li><a id="aCity01012001" href="javascript:void(0)" name="包头市">包头</a></li>
+            <li><a id="aCity01010802" href="javascript:void(0)" name="北海市">北海</a></li>
+            <li><a id="aCity01010101" href="javascript:void(0)" name="北京市">北京</a></li>
+            <li><a id="aCity01010801" href="javascript:void(0)" name="百色市">百色</a></li>
+            <li><a id="aCity01013301" href="javascript:void(0)" name="保山市">保山</a></li>
+            <li><a id="aCity01012401" href="javascript:void(0)" name="长治市">长治</a></li>
+            <li><a id="aCity01011603" href="javascript:void(0)" name="长春市">长春</a></li>
+            <li><a id="aCity01011701" href="javascript:void(0)" name="常州市">常州</a></li>
+            <li><a id="aCity01013002" href="javascript:void(0)" name="昌都市">昌都</a></li>
+            <li><a id="aCity01011903" href="javascript:void(0)" name="朝阳市">朝阳</a></li>
+            <li><a id="aCity01011501" href="javascript:void(0)" name="常德市">常德</a></li>
+            <li><a id="aCity01012703" href="javascript:void(0)" name="成都市">成都</a></li>
+            <li><a id="aCity01010401" href="javascript:void(0)" name="重庆市">重庆</a></li>
+            <li><a id="aCity01011502" href="javascript:void(0)" name="长沙市">长沙</a></li>
+            <li><a id="aCity01012002" href="javascript:void(0)" name="赤峰市">赤峰</a></li>
+            <li><a id="aCity01012402" href="javascript:void(0)" name="大同市">大同</a></li>
+            <li><a id="aCity01011904" href="javascript:void(0)" name="大连市">大连</a></li>
+            <li><a id="aCity01012303" href="javascript:void(0)" name="东营市">东营</a></li>
+            <li><a id="aCity01011301" href="javascript:void(0)" name="大庆市">大庆</a></li>
+            <li><a id="aCity01011905" href="javascript:void(0)" name="丹东市">丹东</a></li>
+            <li><a id="aCity01013303" href="javascript:void(0)" name="大理市">大理</a></li>
+            <li><a id="aCity0101060602" href="javascript:void(0)" name="敦煌市">敦煌</a></li>
+            <li><a id="aCity01012003" href="javascript:void(0)" name="鄂尔多斯市">鄂尔多斯</a></li>
+            <li><a id="aCity01011402" href="javascript:void(0)" name="恩施市">恩施</a></li>
+            <li><a id="aCity01010501" href="javascript:void(0)" name="福州市">福州</a></li>
+            <li><a id="aCity01010207" href="javascript:void(0)" name="阜阳市">阜阳</a></li>
+            <li><a id="aCity01010903" href="javascript:void(0)" name="贵阳市">贵阳</a></li>
+            <li><a id="aCity01010806" href="javascript:void(0)" name="桂林市">桂林</a></li>
+            <li><a id="aCity01010704" href="javascript:void(0)" name="广州市">广州</a></li>
+            <li><a id="aCity01012708" href="javascript:void(0)" name="广元市">广元</a></li>
+          </ul>
+        </div>
+
+        <div class="tabBody" style="display: none; ">
+          <ul id="aCityH_L">
+            <li><a id="aCity01012004" href="javascript:void(0)" name="呼和浩特市">呼和浩特</a></li>
+            <li><a id="aCity01013206" href="javascript:void(0)" name="哈密市">哈密</a></li>
+            <li><a id="aCity01011305" href="javascript:void(0)" name="黑河市">黑河</a></li>
+            <li><a id="aCity0101200507" href="javascript:void(0)" name="海拉尔市">海拉尔</a></li>
+            <li><a id="aCity01011303" href="javascript:void(0)" name="哈尔滨市">哈尔滨</a></li>
+            <li><a id="aCity01011008" href="javascript:void(0)" name="海口市">海口</a></li>
+            <li><a id="aCity01010211" href="javascript:void(0)" name="黄山市">黄山</a></li>
+            <li><a id="aCity01013401" href="javascript:void(0)" name="杭州市">杭州</a></li>
+            <li><a id="aCity01011104" href="javascript:void(0)" name="邯郸市">邯郸</a></li>
+            <li><a id="aCity01010208" href="javascript:void(0)" name="合肥市">合肥</a></li>
+            <li><a id="aCity0101250906" href="javascript:void(0)" name="黄龙">黄龙</a></li>
+            <li><a id="aCity01012503" href="javascript:void(0)" name="汉中市">汉中</a></li>
+            <li><a id="aCity01013207" href="javascript:void(0)" name="和田市">和田</a></li>
+            <li><a id="aCity0101050606" href="javascript:void(0)" name="晋江市">晋江</a></li>
+            <li><a id="aCity01011909" href="javascript:void(0)" name="锦州市">锦州</a></li>
+            <li><a id="aCity01011804" href="javascript:void(0)" name="景德镇市">景德镇</a></li>
+            <li><a id="aCity01010604" href="javascript:void(0)" name="嘉峪关市">嘉峪关</a></li>
+            <li><a id="aCity0101180305" href="javascript:void(0)" name="井冈山市">井冈山</a></li>
+            <li><a id="aCity01012306" href="javascript:void(0)" name="济宁市">济宁</a></li>
+            <li><a id="aCity01011805" href="javascript:void(0)" name="九江市">九江</a></li>
+            <li><a id="aCity01011307" href="javascript:void(0)" name="佳木斯市">佳木斯</a></li>
+            <li><a id="aCity01012305" href="javascript:void(0)" name="济南市">济南</a></li>
+            <li><a id="aCity01013208" href="javascript:void(0)" name="喀什市">喀什</a></li>
+            <li><a id="aCity01013307" href="javascript:void(0)" name="昆明市">昆明</a></li>
+            <li><a id="aCity0101270610" href="javascript:void(0)" name="康定">康定</a></li>
+            <li><a id="aCity01013209" href="javascript:void(0)" name="克拉玛依市">克拉玛依</a></li>
+            <li><a id="aCity0101320304" href="javascript:void(0)" name="库尔勒市">库尔勒</a></li>
+            <li><a id="aCity0101320105" href="javascript:void(0)" name="库车市">库车</a></li>
+            <li><a id="aCity01010607" href="javascript:void(0)" name="兰州市">兰州</a></li>
+            <li><a id="aCity01011206" href="javascript:void(0)" name="洛阳市">洛阳</a></li>
+            <li><a id="aCity01013308" href="javascript:void(0)" name="丽江市">丽江</a></li>
+            <li><a id="aCity01010810" href="javascript:void(0)" name="柳州市">柳州</a></li>
+            <li><a id="aCity01012711" href="javascript:void(0)" name="泸州市">泸州</a></li>
+            <li><a id="aCity01011703" href="javascript:void(0)" name="连云港市">连云港</a></li>
+            <li><a id="aCity01013003" href="javascript:void(0)" name="拉萨市">拉萨</a></li>
+          </ul>
+        </div>
+
+
+
+        <div class="tabBody" style="display: none; ">
+          <ul id="aCityM_T">
+            <li><a id="aCity01011308" href="javascript:void(0)" name="牡丹江市">牡丹江</a></li>
+            <li><a id="aCity0101200508" href="javascript:void(0)" name="满洲里市">满洲里</a></li>
+            <li><a id="aCity01012713" href="javascript:void(0)" name="绵阳市">绵阳</a></li>
+            <li><a id="aCity01010710" href="javascript:void(0)" name="梅县市">梅县</a></li>
+            <li><a id="aCity0101130202" href="javascript:void(0)" name="漠河">漠河</a></li>
+            <li><a id="aCity01011704" href="javascript:void(0)" name="南京市">南京</a></li>
+            <li><a id="aCity01012714" href="javascript:void(0)" name="南充市">南充</a></li>
+            <li><a id="aCity01010811" href="javascript:void(0)" name="南宁市">南宁</a></li>
+            <li><a id="aCity01011207" href="javascript:void(0)" name="南阳市">南阳</a></li>
+            <li><a id="aCity01011705" href="javascript:void(0)" name="南通市">南通</a></li>
+            <li><a id="aCity01011806" href="javascript:void(0)" name="南昌市">南昌</a></li>
+            <li><a id="aCity01013406" href="javascript:void(0)" name="宁波市">宁波</a></li>
+            <li><a id="aCity01012716" href="javascript:void(0)" name="攀枝花市">攀枝花</a></li>
+            <li><a id="aCity01013407" href="javascript:void(0)" name="衢州市">衢州</a></li>
+            <li><a id="aCity01011107" href="javascript:void(0)" name="秦皇岛市">秦皇岛</a></li>
+            <li><a id="aCity01010611" href="javascript:void(0)" name="庆阳市">庆阳</a></li>
+            <li><a id="aCity0101320306" href="javascript:void(0)" name="且末县">且末</a></li>
+            <li><a id="aCity01011309" href="javascript:void(0)" name="齐齐哈尔市">齐齐哈尔</a></li>
+            <li><a id="aCity01012310" href="javascript:void(0)" name="青岛市">青岛</a></li>
+            <li><a id="aCity01010712" href="javascript:void(0)" name="汕头市">汕头</a></li>
+            <li><a id="aCity01010715" href="javascript:void(0)" name="深圳市">深圳</a></li>
+            <li><a id="aCity01011108" href="javascript:void(0)" name="石家庄市">石家庄</a></li>
+            <li><a id="aCity01011014" href="javascript:void(0)" name="三亚市">三亚</a></li>
+            <li><a id="aCity01011912" href="javascript:void(0)" name="沈阳市">沈阳</a></li>
+            <li><a id="aCity01012601" href="javascript:void(0)" name="上海市">上海</a></li>
+            <li><a id="aCity01010908" href="javascript:void(0)" name="铜仁市">铜仁</a></li>
+            <li><a id="aCity01013211" href="javascript:void(0)" name="塔城市">塔城</a></li>
+            <li><a id="aCity0101330105" href="javascript:void(0)" name="腾冲">腾冲</a></li>
+            <li><a id="aCity01013409" href="javascript:void(0)" name="台州市">台州</a></li>
+            <li><a id="aCity01010612" href="javascript:void(0)" name="天水市">天水</a></li>
+            <li><a id="aCity01012901" href="javascript:void(0)" name="天津市">天津</a></li>
+            <li><a id="aCity01012006" href="javascript:void(0)" name="通辽市">通辽</a></li>
+            <li><a id="aCity01012312" href="javascript:void(0)" name="泰安市">泰安</a></li>
+            <li><a id="aCity01012408" href="javascript:void(0)" name="太原市">太原</a></li>
+            <li><a id="aCity01011109" href="javascript:void(0)" name="唐山市">唐山</a></li>
+          </ul>
+        </div>
+
+        <div class="tabBody" style="display: none; ">
+          <ul id="aCityW_Z">
+            <li><a id="aCity01012313" href="javascript:void(0)" name="威海市">威海</a></li>
+            <li><a id="aCity01011410" href="javascript:void(0)" name="武汉市">武汉</a></li>
+            <li><a id="aCity01010813" href="javascript:void(0)" name="北京市">梧州</a></li>
+            <li><a id="aCity0101331306" href="javascript:void(0)" name="文山市">文山</a></li>
+            <li><a id="aCity01011709" href="javascript:void(0)" name="无锡市">无锡</a></li>
+            <li><a id="aCity01012314" href="javascript:void(0)" name="潍坊市">潍坊</a></li>
+            <li><a id="aCity0101050308" href="javascript:void(0)" name="武夷山市">武夷山</a></li>
+            <li><a id="aCity01011016" href="javascript:void(0)" name="万宁市">万宁</a></li>
+            <li><a id="aCity01013410" href="javascript:void(0)" name="温州市">温州</a></li>
+            <li><a id="aCity01013213" href="javascript:void(0)" name="乌鲁木齐市">乌鲁木齐</a></li>
+            <li><a id="aCity0101040130" href="javascript:void(0)" name="万州区">万州</a></li>
+            <li><a id="aCity01012007" href="javascript:void(0)" name="乌海市">乌海</a></li>
+            <li><a id="aCity0101090707" href="javascript:void(0)" name="兴义市">兴义</a></li>
+            <li><a id="aCity0101271013" href="javascript:void(0)" name="西昌市">西昌</a></li>
+            <li><a id="aCity01010508" href="javascript:void(0)" name="厦门市">厦门</a></li>
+            <li><a id="aCity0101330503" href="javascript:void(0)" name="香格里拉">香格里拉</a></li>
+            <li><a id="aCity01012507" href="javascript:void(0)" name="西安市">西安</a></li>
+            <li><a id="aCity0101141207" href="javascript:void(0)" name="襄阳市">襄阳</a></li>
+            <li><a id="aCity01012207" href="javascript:void(0)" name="西宁市">西宁</a></li>
+            <li><a id="aCity0101290118" href="javascript:void(0)" name="西青区">西青</a></li>
+            <li><a id="aCity01011710" href="javascript:void(0)" name="徐州市">徐州</a></li>
+            <li><a id="aCity0101340408" href="javascript:void(0)" name="义乌市">义乌</a></li>
+            <li><a id="aCity01011511" href="javascript:void(0)" name="永州市">永州</a></li>
+            <li><a id="aCity01012510" href="javascript:void(0)" name="榆林市">榆林</a></li>
+            <li><a id="aCity01012509" href="javascript:void(0)" name="延安市">延安</a></li>
+            <li><a id="aCity01012411" href="javascript:void(0)" name="运城市">运城</a></li>
+            <li><a id="aCity01012315" href="javascript:void(0)" name="烟台市">烟台</a></li>
+            <li><a id="aCity01012104" href="javascript:void(0)" name="银川市">银川</a></li>
+            <li><a id="aCity01011414" href="javascript:void(0)" name="宜昌市">宜昌</a></li>
+            <li><a id="aCity01012719" href="javascript:void(0)" name="宜宾市">宜宾</a></li>
+            <li><a id="aCity01011711" href="javascript:void(0)" name="盐城市">盐城</a></li>
+            <li><a id="aCity0101160908" href="javascript:void(0)" name="延吉市">延吉</a></li>
+            <li><a id="aCity01012208" href="javascript:void(0)" name="玉树市">玉树</a></li>
+            <li><a id="aCity0101321408" href="javascript:void(0)" name="伊宁市">伊宁</a></li>
+            <li><a id="aCity01010721" href="javascript:void(0)" name="珠海市">珠海</a></li>
+          </ul>
+        </div>
+        <div class="tabBody" style="display: none; ">
+          <ul id="aCityCOU">
+            <li><a id="aCity03010601" href="javascript:void(0)" name="埃德蒙顿市">埃德蒙顿</a></li>
+            <li><a id="aCity02070101" href="javascript:void(0)" name="阿姆斯特丹市">阿姆斯特丹</a></li>
+            <li><a id="aCity02210101" href="javascript:void(0)" name="雅典市">雅典</a></li>
+            <li><a id="aCity01300101" href="javascript:void(0)" name="曼谷市">曼谷</a></li>
+            <li><a id="aCity02030101" href="javascript:void(0)" name="柏林市">柏林</a></li>
+            <li><a id="aCity02010101" href="javascript:void(0)" name="布鲁塞尔市">布鲁塞尔</a></li>
+            <li><a id="aCity05010101" href="javascript:void(0)" name="开罗市">开罗</a></li>
+            <li><a id="aCity01150201" href="javascript:void(0)" name="喀布尔">喀布尔</a></li>
+            <li><a id="aCity05120201" href="javascript:void(0)" name="开普敦">开普敦</a></li>
+            <li><a id="aCity03060101" href="javascript:void(0)" name="墨西哥城">墨西哥城</a></li>
+            <li><a id="aCity02020101" href="javascript:void(0)" name="哥本哈根">哥本哈根</a></li>
+            <li><a id="aCity05130101" href="javascript:void(0)" name="达喀尔">达喀尔</a></li>
+            <li><a id="aCity02090201" href="javascript:void(0)" name="日内瓦">日内瓦</a></li>
+            <li><a id="aCity01380101" href="javascript:void(0)" name="河内">河内</a></li>
+            <li><a id="aCity01160201" href="javascript:void(0)" name="伊斯兰堡">伊斯兰堡</a></li>
+            <li><a id="aCity01370101" href="javascript:void(0)" name="雅加达">雅加达</a></li>
+            <li><a id="aCity01240101" href="javascript:void(0)" name="吉隆坡">吉隆坡</a></li>
+            <li><a id="aCity02230101" href="javascript:void(0)" name="伦敦市">伦敦</a></li>
+            <li><a id="aCity02100101" href="javascript:void(0)" name="马德里">马德里</a></li>
+            <li><a id="aCity02040101" href="javascript:void(0)" name="莫斯科">莫斯科</a></li>
+            <li><a id="aCity05020101" href="javascript:void(0)" name="内罗毕市">内罗毕</a></li>
+            <li><a id="aCity01140201" href="javascript:void(0)" name="新德里">新德里</a></li>
+            <li><a id="aCity03010101" href="javascript:void(0)" name="渥太华">渥太华</a></li>
+            <li><a id="aCity02050201" href="javascript:void(0)" name="巴黎">巴黎</a></li>
+            <li><a id="aCity01180101" href="javascript:void(0)" name="平壤市">平壤</a></li>
+            <li><a id="aCity02220301" href="javascript:void(0)" name="罗马">罗马</a></li>
+            <li><a id="aCity01210101" href="javascript:void(0)" name="首尔市">首尔</a></li>
+            <li><a id="aCity01330101" href="javascript:void(0)" name="新加坡市">新加坡</a></li>
+            <li><a id="aCity05030101" href="javascript:void(0)" name="卡萨布兰卡">卡萨布兰卡</a></li>
+            <li><a id="aCity01360101" href="javascript:void(0)" name="德黑兰">德黑兰</a></li>
+            <li><a id="aCity01250101" href="javascript:void(0)" name="乌兰巴托">乌兰巴托</a></li>
+            <li><a id="aCity02120101" href="javascript:void(0)" name="维也纳">维也纳</a></li>
+            <li><a id="aCity01230101" href="javascript:void(0)" name="万象">万象</a></li>
+            <li><a id="aCity03051201" href="javascript:void(0)" name="华盛顿">华盛顿</a></li>
+            <li><a id="aCity01260101" href="javascript:void(0)" name="仰光">仰光</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!--[if !IE]>|xGv00|eef4698ce8500246e42aea3bb6dfd5eb<![endif]-->
+<!--天气频道导航 结束-->
+<!--首屏天气信息 开始 -->
+<div id="wInfoPart" class="mod0">
+  <div class="bd">
+    <div class="header">
+      <div class="part0">
+        <h2 id="wCity">城市</h2>        
+      </div>
+      <div class="part1">
+        <p class="p1">实况监测 <strong><span id="wTp">暂无</span>℃</strong> <span id="wWp">微风</span> 湿度：<strong><span id="wHd">暂无</span>%</strong></p>
+      </div>
+      <div class="part2">
+        <ul>
+          <li class="zx">最新预报</li>
+          <li><a title="一周预报" href="http://weather.news.qq.com/yztqcx.htm" target="_blank" onClick="if(window.location.href.indexOf('?')!=-1){this.href=this.href+window.location.href.substr(window.location.href.indexOf('?'))}">一周预报</a></li>
+        </ul>
+      </div>      
+    </div>
+    <div class="weatherInfo">
+      <div class="wInfoBottom"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/weatherInfoBg.jpg" width="960" height="307"></div>
+      <div class="leftPart">
+        <div class="time"><span id="wDate"></span> 星期<span id="wWeek"></span> 农历<span id="wLunar"></span> <span class="sk">（<span id="timePoint">14：00</span>实况）</span></div>
+        <div class="mid">
+          <div class="wBigIco" id="wBigIco"></div>
+          <div class="wData">
+            <p class="wd"><span id="wTp2"></span>℃</p>
+            <p id="wWt"></p>
+            <p><span id="wWd"></span>(<span id="wWp2"></span>)</p>
+          </div>
+        </div>
+        <div class="oData">气压：<span id="wPs"></span>hPa       能见度：<span id="wVb"></span>km       相对湿度：<span id="wHd2"></span>%</div>
+        <div class="shareBtn"><a href="javascript:void(0)" id="shareQzone"></a><a href="javascript:void(0)" id="shareWb"></a><a href="javascript:void(0)" id="sharePengyong"></a><a href="javascript:void(0)" id="shareQQEmail"></a></div>
+      </div>
+      <div class="rightPart">
+        <div class="wl">
+          <h3>36小时预报</h3>
+          <p class="fb"><span id="wWkrt"></span>发布</p>
+        </div>
+		<div class="wlList">
+        <div class="tPart0">
+          <h4 id="wTxtInfo1"></h4>
+          <div class="wMidIco" id="wFutureImg1"></div>
+          <p><span id="wWkt1"></span>℃</p>
+          <p id="wWkwt1"></p>
+          <p id="wWkwp1"></p>
+        </div>
+        <div class="tPart0">
+          <h4 id="wTxtInfo2"></h4>
+          <div class="wMidIco" id="wFutureImg2"></div>
+          <p><span id="wWkt2"></span>℃</p>
+          <p id="wWkwt2"></p>
+          <p id="wWkwp2"></p>
+        </div>
+        <div class="tPart0">
+          <h4 id="wTxtInfo3"></h4>
+          <div class="wMidIco" id="wFutureImg3"></div>
+          <p><span id="wWkt3"></span>℃</p>
+          <p id="wWkwt3"></p>
+          <p id="wWkwp3"></p>
+        </div>
+		</div>
+        <div class="datafrom">合作伙伴：<a href="http://www.mywtv.cn/" target="_blank" title="中国气象视频网">中国气象视频网</a></div>
+      </div>
+    </div><!--[if !IE]>|xGv00|3fda72f0f586b71e11652e9e7ec0d6d8<![endif]-->
+  </div>
+</div>
+<!-- 首屏天气信息 结束 -->
+
+<div>
+
+	<!--艺龙 begin-->
+	<div class="ylGuide">
+  <ul>
+    <li class="yl01">
+      <div class="pic"><a href="http://c.l.qq.com/lclick?seq=20130326000237&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/yl01.png" width="37" height="36"></a></div>
+      <div class="txt">
+        <p><a href="http://c.l.qq.com/lclick?seq=20130326000237&loc=hdjc" target="_blank">国内酒店预订&gt;&gt;</a></p>
+        订酒店最高返现金<strong>210</strong>元</div>
+    </li>
+    <li class="yl02">
+      <div class="pic"><a href="http://c.l.qq.com/lclick?seq=20130326000238&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/yl02.png" width="37" height="36"></a> </div>
+      <div class="txt">
+        <p><a href="http://c.l.qq.com/lclick?seq=20130326000238&loc=hdjc" target="_blank">酒店团购&gt;&gt;</a></p>
+        <strong>上万</strong>家酒店低至<strong>1</strong>折</div>
+    </li>
+    <li class="yl03">
+      <div class="pic"><a href="http://c.l.qq.com/lclick?seq=20130326000239&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/yl03.png" width="37" height="36"></a></div>
+      <div class="txt">
+        <p><a href="http://c.l.qq.com/lclick?seq=20130326000239&loc=hdjc" target="_blank">国际酒店预订&gt;&gt;</a></p>
+        <strong>16</strong>万家海外酒店全场<strong>9</strong>折</div>
+    </li>
+    <li class="yl04 last">
+      <div class="pic"><a href="http://c.l.qq.com/lclick?seq=20130326000240&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/yl04.png" width="37" height="36"></a></div>
+      <div class="txt">
+        <p><a href="http://c.l.qq.com/lclick?seq=20130326000240&loc=hdjc" target="_blank">机票预订&gt;&gt;</a></p>
+        机票最高返现<strong>716</strong>元</div>
+    </li>
+  </ul>
+</div>
+<!--[if !IE]>|xGv00|75fd35da0e920817f825d34d40442413<![endif]-->
+	<!--艺龙 end-->
+</div>
+
+
+<!--生活指数-->
+<div id="shzsPart" class="mod0 mod1">
+  <div class="hd modTitle">
+    <h2><a title="生活指数" href="#">生活指数</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/shzsTitle.png" width="113" height="28"></h2>
+		  <span class="fr"><a href="http://c.l.qq.com/lclick?seq=20130326000241&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/elong.png" ></a><a href="http://c.l.qq.com/lclick?seq=20130326000241&loc=hdjc" target="_blank"><img src="http://mat1.gtimg.com/weather/index2012/images/curIco.png" width="8" height="13">订酒店用艺龙 住酒店返现金</a></span>
+
+
+
+  </div>
+  <div class="bd">
+    <div class="shzs">
+      <div id="ScA3">
+        <div style="top:10px; left:40px; overflow: hidden; zoom: 1; width: 880px; position: relative; height: 180px;">
+          <div class="cols" id="ISL_Cont1">
+            <ul class="count" id="shzs">
+              <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/kqwr.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>空气污染：<span id="kqwrType"></span></h3>
+                  <p id="kqwrInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/ly.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>旅游：<span id="lyType"></span></h3>
+                  <p id="lyInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/cy.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>穿衣：<span id="cyType"></span></h3>
+                  <p id="cyInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/xc.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>洗车：<span id="xcType"></span></h3>
+                  <p id="xcInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/cl.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>晨练：<span id="clType"></span></h3>
+                  <p id="clInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/gm.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>感冒：<span id="gmType"></span></h3>
+                  <p id="gmInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/zs.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>中暑：<span id="zsType"></span></h3>
+                  <p id="zsInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/zwx.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>紫外线：<span id="zwxType"></span></h3>
+                  <p id="zwxInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/ls.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>晾晒：<span id="lsType"></span></h3>
+                  <p id="lsInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/kt.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>空调开启：<span id="ktType"></span></h3>
+                  <p id="ktInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/dy.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>钓鱼：<span id="dyType"></span></h3>
+                  <p id="dyInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/fs.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>防晒：<span id="fsType"></span></h3>
+                  <p id="fsInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/gj.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>逛街：<span id="gjType"></span></h3>
+                  <p id="gjInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/hc.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>划船：<span id="hcType"></span></h3>
+                  <p id="hcInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/jt.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>交通：<span id="jtType"></span></h3>
+                  <p id="jtInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/ys.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>雨伞：<span id="ysType"></span></h3>
+                  <p id="ysInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/mf.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>美发：<span id="mfType"></span></h3>
+                  <p id="mfInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/ysh.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>夜生活：<span id="yshType"></span></h3>
+                  <p id="yshInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/ffz.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>放风筝：<span id="ffzType"></span></h3>
+                  <p id="ffzInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/hz.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>化妆：<span id="hzType"></span></h3>
+                  <p id="hzInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/fh.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>风寒：<span id="fhType"></span></h3>
+                  <p id="fhInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/xq.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>心情：<span id="xqType"></span></h3>
+                  <p id="xqInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/yd.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>运动：<span id="ydType"></span></h3>
+                  <p id="ydInfo"></p>
+                </div>
+              </li>
+			  <li class="">
+                <div class="shzsIco"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/yh.png" width="58" height="58"></div>
+                <div class="txt">
+                  <h3>约会：<span id="yhType"></span></h3>
+                  <p id="yhInfo"></p>
+                </div>
+              </li><!--[if !IE]>|xGv00|7fa2870ad8796a65add17044f76794c5<![endif]-->
+            </ul>
+          </div>
+        </div>
+        <a class="prev"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/GLeftCur.png" width="16" height="35"></a> <a class="next"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/GRightCur.png" width="16" height="35"></a> </div>
+    </div>
+  </div>
+</div>
+<!--生活指数结束-->
+
+
+
+<script>try{QosS.topSpan("weather_result", 20);}catch(e){}</script>
+
+
+<script language="javascript" src="http://pingjs.qq.com/ping.js"></script>
+<script language="javascript">if(typeof(pgvMain) == 'function')pgvMain();</script>
+<!--[if !IE]>|xGv00|34a63014eab6b9b7bda0c2fdabffd9f6<![endif]-->
+<script type="text/javascript">
+    var wTime = {};
+    wTime.currenttime = '2013.04.01';
+    wTime.currentHours = '14';
+    wTime.currentWeek = 'Mon';
+</script>
+<script type="text/javascript">
+    Qfast.add('ipaddress', { path: "http://fw.qq.com:80/ipaddress", type: "js" });
+    Qfast.add('weatherInfo', { path: "http://mat1.gtimg.com/news/2013/cityDir_v9.4.js", type: "js", requires: ['ipaddress'] });
+
+
+</script>
+<!--添加城市天气-->
+<script type="text/javascript">
+    Qfast.add('addCityWeather', { path: "http://weather.news.qq.com/index2012/js/addCityWeather.js", type: "js", requires: ['weatherInfo'] });
+    Qfast(false, 'addCityWeather', function () {
+
+
+
+
+
+
+
+
+
+        showPop.showOtherWeather();
+        showPop.addCityTabName('popSearchInput', 'addCityPopTab','0');
+        showPop.addCityAct('addCityPopBtn', 'addCityPop', 'popSearchInput');
+
+        showPop.addCityTabName('', 'cardBody0', '1');
+        showPop.addCityTabName('', 'cardBody1', '2');
+        showPop.toDirCity('wSearch', 'wSearchBtn');
+    })  
+</script>
+<!--气象视频 开始 -->
+
+
+
+<div id="qxspMod" class="mod0">
+  <div class="hd modTitle">
+    <h2><a title="气象视频" href="#">气象视频</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/qxspTitle.png" width="113" height="36"></h2>
+    <span class="fr">独家合作:</span></div>
+  <div class="bd modBody">
+    <div class="leftPart">
+      <!---->
+      <ul>
+        <!--utf-8-->
+<li><div class="cBox"><a title="明后天华南仍将会有强降雨" href="http://www.mywtv.cn/2013-03/31/content_867088.htm" target="_blank"><span class="pic"><img alt="" src="http://video.mywtv.cn/data/attachement/jpg/site2/20130331/b8ac6f4a2bc512c26fdb0c.jpg" width="150" height="110"></span><span class="cover"></span></a></div><a title="明后天华南仍将会有强降雨" href="http://www.mywtv.cn/2013-03/31/content_867088.htm" target="_blank">明后天华南仍将会有强降雨</a></li><li><div class="cBox"><a title="南方多雨 硅胶包果冻包受追捧" href="http://www.mywtv.cn/2013-03/31/content_866902.htm" target="_blank"><span class="pic"><img alt="" src="http://video.mywtv.cn/data/attachement/jpg/site2/20130331/b8ac6f4a2bc512c220ff07.jpg" width="150" height="110"></span><span class="cover"></span></a></div><a title="南方多雨 硅胶包果冻包受追捧" href="http://www.mywtv.cn/2013-03/31/content_866902.htm" target="_blank">南方多雨 硅胶包果冻包受追捧</a></li><li><div class="cBox"><a title="汕昆广昆高速粤桂段有暴雨" href="http://www.mywtv.cn/2013-04/01/content_867243.htm" target="_blank"><span class="pic"><img alt="" src="http://video.mywtv.cn/data/attachement/jpg/site2/20130401/bc305bbf502312c3162640.jpg" width="150" height="110"></span><span class="cover"></span></a></div><a title="汕昆广昆高速粤桂段有暴雨" href="http://www.mywtv.cn/2013-04/01/content_867243.htm" target="_blank">汕昆广昆高速粤桂段有暴雨</a></li><li><div class="cBox"><a title="北京雾霾未散雨将至" href="http://www.mywtv.cn/2013-03/31/content_867310.htm" target="_blank"><span class="pic"><img alt="" src="http://video.mywtv.cn/data/attachement/jpg/site2/20130331/b8ac6f4a2bc512c238b708.jpg" width="150" height="110"></span><span class="cover"></span></a></div><a title="北京雾霾未散雨将至" href="http://www.mywtv.cn/2013-03/31/content_867310.htm" target="_blank">北京雾霾未散雨将至</a></li><li><div class="cBox"><a title="重庆持续晴热少雨 樱桃提前熟" href="http://www.mywtv.cn/2013-04/01/content_867308.htm" target="_blank"><span class="pic"><img alt="" src="http://video.mywtv.cn/data/attachement/jpg/site2/20130401/b8ac6f4a2bc512c317c802.jpg" width="150" height="110"></span><span class="cover"></span></a></div><a title="重庆持续晴热少雨 樱桃提前熟" href="http://www.mywtv.cn/2013-04/01/content_867308.htm" target="_blank">重庆持续晴热少雨 樱桃提前熟</a></li><li><div class="cBox"><a title="气温偏高红嘴鸥提前离昆明" href="http://www.mywtv.cn/2013-04/01/content_867307.htm" target="_blank"><span class="pic"><img alt="" src="http://video.mywtv.cn/data/attachement/jpg/site2/20130401/b8ac6f4a2bc512c317b501.jpg" width="150" height="110"></span><span class="cover"></span></a></div><a title="气温偏高红嘴鸥提前离昆明" href="http://www.mywtv.cn/2013-04/01/content_867307.htm" target="_blank">气温偏高红嘴鸥提前离昆明</a></li><!--[if !IE]>|xGv00|f81a54a821f5ca423b3e2d55f465077e<![endif]--><!--[if !IE]>|xGv00|e40fdfb23fcbf47d527e51a6a3d42418<![endif]-->
+      </ul>
+    </div>
+    <!--utf-8-->
+<div class="MidPart" style="background-image:none;margin-left:0px;">
+  <iframe style="margin:0 0 0 15px;" src="http://smart.linktech.cn/custom_link.php?a=A100159366&size=170x280&target=_blank&rolling_time=10&show_count=0&rolling_yn=Y&rolling_method=2&u_id=" width='170' height='280' scrolling="no" frameborder="0" ></iframe>
+</div>
+<div class="rightPart">
+  <ul>
+    <li>
+      <div id="mywtvad"></div>
+      <script type="text/javascript" src="http://mat1.qq.com/www/js/swfobjectopt.js"></script>
+<script type="text/javascript">
+var sofocus = new SWFObject("http://video.mywtv.cn/webfiles/ad_160_110.swf", "flash_focus", "160", "110", "6.0.65.0", "#FFFFFF"); 
+ sofocus.addParam("allowNetworking", "all"); 
+ sofocus.addParam("allowScriptAccess", "always"); 
+ sofocus.addParam("allowFullScreen", "true"); 
+ sofocus.addParam("scale", "noscale");
+ sofocus.addParam("wmode", "transparent"); 
+ sofocus.write("mywtvad");
+</script>
+    </li>
+    <li>
+      <div id="mywtvad1"></div>
+      <script type="text/javascript" src="http://mat1.qq.com/www/js/swfobjectopt.js"></script>
+<script type="text/javascript">
+var sofocus = new SWFObject("http://video.mywtv.cn/webfiles/160_110.swf", "flash_focus", "160", "110", "6.0.65.0", "#FFFFFF"); 
+ sofocus.addParam("allowNetworking", "all"); 
+ sofocus.addParam("allowScriptAccess", "always"); 
+ sofocus.addParam("allowFullScreen", "true"); 
+ sofocus.addParam("scale", "noscale");
+ sofocus.addParam("wmode", "transparent"); 
+ sofocus.write("mywtvad1");
+</script>
+    </li>
+  </ul>
+</div><!--[if !IE]>|xGv00|8d69dcd6fc21312d6630554ebfd2f6df<![endif]--><!--[if !IE]>|xGv00|a118991a969b1396040d39a3bd336369<![endif]-->
+  </div>
+</div>
+<!-- 气象视频 结束 -->
+<iframe src="http://www.mywtv.cn/webfiles/index.html" style="display:none; width:1px; height:1px;"></iframe>
+<!--气象焦点&健康贴士&微博 开始 -->
+<div id="jdjk" class="mod0">
+  <div class="bd">
+    <div class="leftPart">
+      <!--气象焦点-->
+      <div id="qxjd" class="mod4">
+        <div class="hd modTitle">
+          <h2><a title="气象焦点" href="#">气象焦点</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/qxjdTitle.png" width="98" height="19"></h2>
+          <span class="fr"><a title="更多" href="http://weather.news.qq.com/l/zixun/jiaodian.htm" target="_blank">更多&gt;&gt;</a></span></div>
+        <div class="bd">
+          <ul>
+            <li>·<a target="_blank" href="/a/20130401/000006.htm">辽宁吉林有暴雪 广东广西湖南有强对流</a>
+</li>
+<li>·<a target="_blank" href="/a/20130331/000009.htm">华南有强降雨 东北南部迎强降雪</a>
+</li>
+<li>·<a target="_blank" href="/a/20130330/000025.htm">强降雨将再袭南方 北方局地明夜将暴雪</a>
+</li>
+<li>·<a target="_blank" href="/a/20130330/000020.htm">未来3天我国大部气温起伏缓和逐步回升</a>
+</li>
+<li>·<a target="_blank" href="/a/20130330/000010.htm">华南有强降雨 东北南部有强降雪</a>
+</li>
+<!--[if !IE]>|xGv00|bf72b8f3ada0b8284d2add19bc1ec8a6<![endif]-->
+          </ul>
+          <ul>
+            <li>·<a target="_blank" href="/a/20130330/000014.htm">强降雨扎堆华南地区 需谨防强对流天气</a>
+</li>
+<li>·<a target="_blank" href="/a/20130329/000034.htm">广东等地未来3天持续暴雨 局地大暴雨</a>
+</li>
+<li>·<a target="_blank" href="/a/20130329/000020.htm">长沙等中东部城市未来3天气温波动起伏</a>
+</li>
+<li>·<a target="_blank" href="/a/20130329/000021.htm">昨日广东多地迎今年以来最强降雨</a>
+</li>
+<li>·<a target="_blank" href="/a/20130329/000017.htm">华北黄淮有弱降水 华南强降雨侵袭</a>
+</li>
+<!--[if !IE]>|xGv00|70f114d640266bbf4994547912b72dbe<![endif]-->
+          </ul>
+        </div><!--[if !IE]>|xGv00|8e7b21d598d4af9c7aa1cc4456e8e4e4<![endif]-->
+      </div>
+      <!--健康贴士-->
+      <div id="jkts" class="mod4">
+        <div class="hd modTitle">
+          <h2><a title="健康贴士" href="#">健康贴士</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/jktsTitle.png" width="93" height="19"></h2>
+          <span class="fr"><a title="更多" href="http://news.qq.com/l/health2012/jkxz/list2011121210949.htm" target="_blank">更多&gt;&gt;</a></span></div>
+        <div class="bd">
+          <ul>
+            <li>·<a target="_blank" href="/a/20130318/000030.htm">自己在家监测水质</a>
+</li>
+<li>·<a target="_blank" href="/a/20130316/000033.htm">七招赶走春天的烦躁</a>
+</li>
+<li>·<a target="_blank" href="/a/20130312/000053.htm">新茶易致胃痛腹胀 不宜多喝</a>
+</li>
+<li>·<a target="_blank" href="/a/20130312/000054.htm">过度养生易增加心理压力 对健康不利</a>
+</li>
+<li>·<a target="_blank" href="/a/20130306/000002.htm">海冰减少极大影响温室气体平衡(图)</a>
+</li>
+<!--[if !IE]>|xGv00|f66cffccd72ad30c73d4e4537dbcf6ec<![endif]-->
+          </ul>
+          <ul>
+            <li>·<a target="_blank" href="/a/20130312/000052.htm">惊蛰节气饮食要清淡 吃梨养生</a>
+</li>
+<li>·<a target="_blank" href="/a/20130301/000066.htm">什么样的家用净水机有效？</a>
+</li>
+<li>·<a target="_blank" href="/a/20130312/000055.htm">忽冷忽热　身心都要防感冒</a>
+</li>
+<li>·<a target="_blank" href="/a/20130301/000067.htm">200卡路里有多少？</a>
+</li>
+<li>·<a target="_blank" href="/a/20130221/000004.htm">冬春交替天气多变 五病高发感冒居首</a>
+</li>
+<!--[if !IE]>|xGv00|e3cc4022db95939f7878a8e6cd481d13<![endif]-->
+          </ul>
+        </div><!--[if !IE]>|xGv00|2932f8cefcf4d2abb4d82be3b89d962d<![endif]-->
+      </div>
+    </div>
+    <div class="rightPart">
+      <!--微博-->
+      <div id="wblm">
+        <div class="hd"> <span class="fr"><a title="更多" href="http://search.t.qq.com/user.php?pos=436&k=%E5%A4%A9%E6%B0%94" target="_blank">更多</a></span></div>
+        <div class="bd">
+          <div id="tab3">
+            <ul id="cardBtn3">
+              <li class="tabBtn">天气微博</li>
+              <li class="tabBtn">微博推荐</li>
+            </ul>
+            <!--天气微博 start-->
+            <div id="cardBody3">
+              <div class="tabBody" style="display: none; ">
+                <div id="followall_mod" class="followall_mod">
+                  <div class="q_pL">
+                    <ul class="f12 l26 mag20">
+                      <li> <a title="weather_news" href="http://t.qq.com/weather_news" target="_blank" class="pic"><img alt="" src="http://t1.qlogo.cn/mbloghead/2f3a5677d068a5d99462/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="weather_news">
+                          中央气象台<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/blueIco.png" width="15" height="15"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/lv5Ico.png" width="35" height="15"></p>
+                        <div uid="weather_news" class="attentBoxWrap"> <a title="中央气象台" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="中央气象台" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+                      <li> <a title="中国气象" href="http://t.qq.com/mywtvcn" target="_blank" class="pic"><img alt="" src="http://t1.qlogo.cn/mbloghead/ffd687222f7b61660930/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="mywtvcn">
+                          中国气象<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/orangeIco.png" width="15" height="15"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/lv5Ico.png" width="35" height="15"></p>
+                        <div uid="mywtvcn" class="attentBoxWrap"> <a title="中国气象" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="中国气象" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+					  <li> <a title="中国气象网" href="http://e.t.qq.com/zgqxw9797" target="_blank" class="pic"><img alt="" src="http://img1.gtimg.com/weather/pics/hv1/249/179/1106/71963544.png" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="zgqxw9797">
+                          中国气象网<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/orangeIco.png" width="15" height="15"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/lv5Ico.png" width="35" height="15"></p>
+                        <div uid="zgqxw9797" class="attentBoxWrap"> <a title="中国气象网" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="中国气象网" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+                      <li> <a title="空间天气监测预警中心" href="http://t.qq.com/spaceweather" target="_blank" class="pic"><img alt="" src="http://t3.qlogo.cn/mbloghead/66f030827940f70d3f8c/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="spaceweather">
+                          空间天气预警<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/blueIco.png" width="15" height="15"></p>
+                        <div uid="spaceweather" class="attentBoxWrap"> <a title="空间天气监测预警中心" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="空间天气监测预警中心" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+                      <!--[if !IE]>|xGv00|d50f4b6fe5e50af2b405cfe6cf7c623f<![endif]-->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!--天气微博 end-->
+              <!--微博推荐 start-->
+              <div class="tabBody" style="display: none; ">
+                <div id="followall_mod2" class="followall_mod">
+                  <div class="q_pL">
+                    <ul class="f12 l26 mag20">
+                      <li> <a title="腾讯健康小秘书" href="http://e.t.qq.com/jiankangmishu" target="_blank" class="pic"><img alt="" src="http://t1.qlogo.cn/mbloghead/e1a5d7a8b2c7af1cd4a0/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="jiankangmishu">
+                          健康小秘书<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/blueIco.png" width="15" height="15"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/lv5Ico.png" width="35" height="15"></p>
+                        <div uid="jiankangmishu" class="attentBoxWrap"> <a title="健康小秘书" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="健康小秘书" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+					  
+					  
+					  
+                      <li> <a title="腾讯微生活" href="http://e.t.qq.com/qqmeishi" target="_blank" class="pic"><img alt="" src="http://t0.qlogo.cn/mbloghead/21a6c82f5ff535ff6442/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="qqmeishi">
+                          腾讯微生活<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/orangeIco.png" width="15" height="15"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/lv5Ico.png" width="35" height="15"></p>
+                        <div uid="qqmeishi" class="attentBoxWrap"> <a title="腾讯微生活" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="腾讯微生活" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+					  
+					  
+					  <li> <a title="潮生活" href="http://t.qq.com/hilife" target="_blank" class="pic"><img alt="" src="http://t2.qlogo.cn/mbloghead/a3f527f9d9c84dfbb7bc/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="hilife">
+                          潮生活<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/orangeIco.png" width="15" height="15"><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/lv5Ico.png" width="35" height="15"></p>
+                        <div uid="hilife" class="attentBoxWrap"> <a title="潮生活" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="潮生活" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+                      <li> <a title="腾讯拍拍美食" href="http://e.t.qq.com/paipaifood" target="_blank" class="pic"><img alt="" src="http://t0.qlogo.cn/mbloghead/8f85488c32bd6a0b3312/120" width="113" height="113" /></a>
+                        <p>
+                          <input class="userCheckItem" checked="checked" type="checkbox" name="sl"  value="paipaifood">
+                          腾讯拍拍美食<img alt="" src="http://mat1.gtimg.com/weather/index2012/images/blueIco.png" width="15" height="15"></p>
+                        <div uid="paipaifood" class="attentBoxWrap"> <a title="腾讯拍拍美食" title="立即收听" class="addAttention" href="#"><span>+收听</span></a> <a title="腾讯拍拍美食" style="display: none;" class="delAttention" href="#" title="已收听"><span>已收听</span></a> </div>
+                      </li>
+                      <!--[if !IE]>|xGv00|edd545dde8c7165d0081dfc9cc08ff9b<![endif]-->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!--微博推荐 end-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 气象焦点&健康贴士&微博 结束 -->
+<!--各地天气&国际天气&气象知识 开始 -->
+<div id="gdgj" class="mod0">
+  <div class="bd">
+    <div class="leftPart">
+      <!--各地天气-->
+      <div id="gdtq" class="mod4">
+        <div class="hd modTitle">
+          <h2><a title="各地天气" href="#">各地天气</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/gedi.png" width="98" height="19"></h2>
+          <span class="fr"><a title="更多" href="http://weather.news.qq.com/l/gdtq/gedi.htm" target="_blank">更多&gt;&gt;</a></span></div>
+        <div class="bd">
+          <ul>
+            <li>·<a target="_blank" href="/a/20130330/000041.htm">西藏滑坡搜救紧张进行 风大温差须克服</a>
+</li>
+<li>·<a target="_blank" href="/a/20130328/000050.htm">昨天东北雪花纷飞 南方雨水笼罩</a>
+</li>
+<li>·<a target="_blank" href="/a/20130327/000045.htm">东北气温昨冲新高 今将“跳水”</a>
+</li>
+<li>·<a target="_blank" href="/a/20130327/000044.htm">昨日福建广东多地现今年以来最强降雨</a>
+</li>
+<li>·<a target="_blank" href="/a/20130327/000033.htm">北京气温回升雾霾重现 需做好防护措施</a>
+</li>
+<!--[if !IE]>|xGv00|1908d21c2074920d49f3cd2fb47895a4<![endif]-->
+          </ul>
+          <ul>
+            <li>·<a target="_blank" href="/a/20130326/000066.htm">今日东北气温创阶段性高点 明起又降温</a>
+</li>
+<li>·<a target="_blank" href="/a/20130326/000056.htm">京城气温波动非“倒春寒”</a>
+</li>
+<li>·<a target="_blank" href="/a/20130326/000057.htm">南昌3月多降雨 为近15年以来同期最
+			..</a>
+</li>
+<li>·<a target="_blank" href="/a/20130326/000013.htm">南方多地强对流持续 东北局地有暴雪</a>
+</li>
+<li>·<a target="_blank" href="/a/20130325/000019.htm">“七彩云南”为何连续四年干旱</a>
+</li>
+<!--[if !IE]>|xGv00|3b83638a40f5f58fd91bc843751f3e6c<![endif]-->
+          </ul>
+        </div><!--[if !IE]>|xGv00|13261a2fae02df8b4fcd4fcd33e1063a<![endif]-->
+      </div>
+      <!--国际天气-->
+      <div id="gjtq" class="mod4">
+        <div class="hd modTitle">
+          <h2><a title="国际天气" href="#">国际天气</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/guoji.png" width="98" height="19"></h2>
+          <span class="fr"><a title="更多" href="http://weather.news.qq.com/l/gwtq/guoji.htm" target="_blank">更多&gt;&gt;</a></span></div>
+        <div class="bd">
+          <ul>
+            <li>·<a target="_blank" href="/a/20130222/000009.htm">冰期大灭绝重塑澳大利亚植物界(图)</a>
+</li>
+<li>·<a target="_blank" href="/a/20130212/000006.htm">美国暴风雪势弱 龙卷风来袭伤60人</a>
+</li>
+<li>·<a target="_blank" href="/a/20130211/000003.htm">气候变暖致哥斯达黎加云雾林受损(图)</a>
+</li>
+<li>·<a target="_blank" href="/a/20130201/000018.htm">格陵兰岛大部分冰盖融化 </a>
+</li>
+<li>·<a target="_blank" href="/a/20130130/000013.htm">研究称向海洋撒矿物粉可吸收二氧化碳</a>
+</li>
+<!--[if !IE]>|xGv00|154b4c988c4929dca9cb294ef9521e5d<![endif]-->
+          </ul>
+          <ul>
+            <li>·<a target="_blank" href="/a/20130129/000062.htm">强风暴雨袭澳大利亚东部</a>
+</li>
+<li>·<a target="_blank" href="/a/20130121/000070.htm">印尼雅加达洪灾持续致20人亡 </a>
+</li>
+<li>·<a target="_blank" href="/a/20130121/000055.htm">暴风雪天气席卷法国大部</a>
+</li>
+<li>·<a target="_blank" href="/a/20130121/000053.htm">莫桑比克洪灾35人死亡 2万多人受灾</a>
+</li>
+<li>·<a target="_blank" href="/a/20130119/000019.htm">印尼首都洪水已致11人死亡2万人疏散</a>
+</li>
+<!--[if !IE]>|xGv00|6b6023104103f57e397775e67a6e9b95<![endif]-->
+          </ul>
+        </div><!--[if !IE]>|xGv00|4208d3d1727bb34acbe00dd30c536185<![endif]-->
+      </div>
+    </div>
+    <div class="rightPart">
+      <!--气象知识-->
+      <div id="qxzs">
+        <div class="hd modTitle2"><h2>气象知识</h2> <span class="fr"><a title="更多" href="http://www.mywtv.cn/knowledge/index.htm" target="_blank">更多</a></span></div>
+        <div class="bd">
+			<ul><li> <a title="忽冷忽热防感冒" href="http://weather.news.qq.com/a/20130312/000055.htm" target="_blank" class="pic"><img alt="" src="http://img1.gtimg.com/weather/pics/hv1/175/152/1281/83335960.jpg" width="113" height="113" /></a> 
+                       <p> 
+                       忽冷忽热防感冒</p>
+</li>
+
+<li> <a title="过度养生也是病" href="http://weather.news.qq.com/a/20130312/000054.htm" target="_blank" class="pic"><img alt="" src="http://img1.gtimg.com/weather/pics/hv1/147/151/1281/83335677.jpg" width="113" height="113" /></a>
+                        <p>
+                        过度养生也是病</p>
+</li>
+<li> <a title="望闻品捏辩新茶" href="http://weather.news.qq.com/a/20130312/000053.htm" target="_blank" class="pic"><img src="http://img1.gtimg.com/weather/pics/hv1/232/151/1281/83335762.jpg" alt="" width="113" height="113" border="0" /></a>
+                        <p>
+                      望闻品捏辩新茶</p>
+</li>
+<li> <a title="惊蛰养生吃个梨" href="http://weather.news.qq.com/a/20130312/000052.htm" target="_blank" class="pic"><img src="http://img1.gtimg.com/weather/pics/hv1/41/151/1281/83335571.jpg" alt="" height="113" border="0" /></a>
+                        <p>
+                      惊蛰养生吃个梨</p>
+</li>
+<!--[if !IE]>|xGv00|d92e7cf862e33d3557d96283c498066f<![endif]--></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 各地天气&国际天气&气象知识 结束 -->
+<!--便捷查询 开始 -->
+<div id="bjyj" class="mod0">
+  <div class="bd">
+    <!--便捷查询-->
+    <div id="bjcx" class="mod1">
+      <div class="hd modTitle">
+        <h2><a title="便捷查询" href="#">便捷查询</a><img alt="" src="http://mat1.gtimg.com/weather/index2012/images/bjcxTitle.png" width="161" height="34"></h2>
+      </div>
+      <div class="bd">
+        <div id="tab">
+          <ul id="cardBtn1">
+            <li class="tabBtn">国内城市</li>
+            <li class="tabBtn">国际城市</li>
+            <li class="tabBtn">热门景点</li>
+          </ul>
+          <div id="cardBody1">
+            <!--国内城市 150个 start-->
+            <div style="display: block;" class="tabBody">
+              <div class="part0 mod3">
+                <ul>
+                  <li>
+                    <label>
+                    B
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01010101" name="北京">北京</a><a href="javascript:void(0)" target="_blank" id="pCity01012001" name="包头">包头</a><a href="javascript:void(0)" target="_blank" id="pCity01010802" name="北海">北海</a><a href="javascript:void(0)" target="_blank" id="pCity01013301" name="保山">保山</a></li>
+                  <li>
+                    <label>
+                    A
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01010201" name="安庆">安庆</a><a href="javascript:void(0)" target="_blank" id="pCity01012501" name="安康">安康</a><a href="javascript:void(0)" target="_blank" id="pCity001013202" name="阿勒泰">阿勒泰</a></li>
+                  <li>
+                    <label>
+                    C
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01011502" name="长沙">长沙</a><a href="javascript:void(0)" target="_blank" id="pCity01010704" name="广州">广州</a><a href="javascript:void(0)" target="_blank" id="pCity01012703" name="成都">成都</a><a href="javascript:void(0)" target="_blank" id="pCity01012401" name="长治">长治</a> <a href="javascript:void(0)" target="_blank" id="pCity01011603" name="长春">长春</a> <a href="javascript:void(0)" target="_blank" id="pCity01010401" name="重庆">重庆</a></li>
+                  <li>
+                    <label>
+                    D
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01011904" name="大连">大连</a><a href="javascript:void(0)" target="_blank" id="pCity01012402" name="大同">大同</a><a href="javascript:void(0)" target="_blank" id="pCity01011301" name="大庆">大庆</a><a href="javascript:void(0)" target="_blank" id="pCity01013303" name="大理">大理</a><a href="javascript:void(0)" target="_blank" id="pCity0101060602" name="敦煌">敦煌</a></li>
+                   <li>
+                    <label>
+                    F
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01010501" name="福州">福州</a></li>
+                </ul>
+              </div>
+              <div class="part1 mod3">
+                <ul>
+                  <li>
+                    <label>
+                    G
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01010903" name="贵阳">贵阳</a><a href="javascript:void(0)" target="_blank" id="pCity01010806" name="桂林">桂林</a><a href="javascript:void(0)" target="_blank" id="pCity01010704" name="广州">广州</a></li>
+                  <li>
+                    <label>
+                    H
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01013401" name="杭州">杭州</a><a href="javascript:void(0)" target="_blank" id="pCity01011008" name="海口">海口</a><a href="javascript:void(0)" target="_blank" id="pCity01011303" name="哈尔滨">哈尔滨</a><a href="javascript:void(0)" target="_blank" id="pCity01012004" name="呼和浩特">呼和浩特</a><a href="javascript:void(0)" target="_blank" id="pCity01010208" name="合肥">合肥</a></li>
+                  <li>
+                    <label>
+                    J
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01012305" name="济南">济南</a><a href="javascript:void(0)" target="_blank" id="pCity01011909" name="锦州">锦州</a><a href="javascript:void(0)" target="_blank" id="pCity01010604" name="嘉峪关">嘉峪关</a><a href="javascript:void(0)" target="_blank" id="pCity0101180305" name="井冈山">井冈山</a></li>
+                   <li>
+                    <label>
+                    k
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01013307" name="昆明">昆明</a><a href="javascript:void(0)" target="_blank" id="pCity01013208" name="喀什">喀什</a><a href="javascript:void(0)" target="_blank" id="pCity01013209" name="克拉玛依">克拉玛依</a><a href="javascript:void(0)" target="_blank" id="pCity0101270610" name="康定">康定</a></li>
+                  <li>
+                    <label>
+                    L
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01013003" name="拉萨">拉萨</a><a href="javascript:void(0)" target="_blank" id="pCity01010607" name="兰州">兰州</a><a href="javascript:void(0)" target="_blank" id="pCity01011206" name="洛阳">洛阳</a><a href="javascript:void(0)" target="_blank" id="pCity01013308" name="丽江">丽江</a></li> 
+                  <li>
+                    <label>
+                    M
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity0101200508" name="满洲里">满洲里</a><a href="javascript:void(0)" target="_blank" id="pCity01011308" name="牡丹江">牡丹江</a><a href="javascript:void(0)" target="_blank" id="pCity01012713" name="绵阳">绵阳</a><a href="javascript:void(0)" target="_blank" id="pCity0101130202" name="漠河">漠河</a></li>
+                </ul>
+              </div>
+              <div class="part2 mod3">
+                <ul>
+                  <li>
+                    <label>
+                    N
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01011704" name="南京">南京</a><a href="javascript:void(0)" target="_blank" id="pCity01010811" name="南宁">南宁</a><a href="javascript:void(0)" target="_blank" id="pCity01011806" name="南昌">南昌</a><a href="javascript:void(0)" target="_blank" id="pCity01013406" name="宁波">宁波</a></li>
+                  <li>
+                    <label>
+                    Q
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01012310" name="青岛">青岛</a><a href="javascript:void(0)" target="_blank" id="pCity01011107" name="秦皇岛">秦皇岛</a><a href="javascript:void(0)" target="_blank" id="pCity01011309" name="齐齐哈尔">齐齐哈尔</a></li>
+                  <li>
+                    <label>
+                    S
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01010715" name="深圳">深圳</a><a href="javascript:void(0)" target="_blank" id="pCity01011912" name="沈阳">沈阳</a><a href="javascript:void(0)" target="_blank" id="pCity01011014" name="三亚">三亚</a><a href="javascript:void(0)" target="_blank" id="pCity01012601" name="上海">上海</a><a href="javascript:void(0)" target="_blank" id="pCity01010712" name="汕头">汕头</a><a href="javascript:void(0)" target="_blank" id="pCity01011108" name="石家庄">石家庄</a></li>
+                  <li>
+                    <label>
+                    T
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01012901" name="天津">天津</a><a href="javascript:void(0)" target="_blank" id="pCity01012408" name="太原">太原</a><a href="javascript:void(0)" target="_blank" id="pCity0101330105" name="腾冲">腾冲</a><a href="javascript:void(0)" target="_blank" id="pCity01011109" name="唐山">唐山</a></li>     
+                  <li>
+                    <label>
+                    w
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01011410" name="武汉">武汉</a><a href="javascript:void(0)" target="_blank" id="pCity01013213" name="乌鲁木齐">乌鲁木齐</a><a href="javascript:void(0)" target="_blank" id="pCity01012313" name="威海">威海</a><a href="javascript:void(0)" target="_blank" id="pCity01011709" name="无锡">无锡</a><a href="javascript:void(0)" target="_blank" id="pCity0101050308" name="武夷山">武夷山</a></li>
+                </ul>
+              </div>
+              <div class="mod3 part3">
+                <ul>
+                  <li>
+                    <label>
+                    X
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01012507" name="西安">西安</a><a href="javascript:void(0)" target="_blank" id="pCity01010508" name="厦门">厦门</a><a href="javascript:void(0)" target="_blank" id="pCity01012207" name="西宁">西宁</a><a href="javascript:void(0)" target="_blank" id="pCity01011710" name="徐州">徐州</a></li>
+                  <li>
+                    <label>
+                    Y
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01012104" name="银川">银川</a><a href="javascript:void(0)" target="_blank" id="pCity01011414" name="宜昌">宜昌</a><a href="javascript:void(0)" target="_blank" id="pCity01012509" name="延安">延安</a><a href="javascript:void(0)" target="_blank" id="pCity01012315" name="烟台">烟台</a><a href="javascript:void(0)" target="_blank" id="pCity01012208" name="玉树">玉树</a></li>
+                  <li>
+                    <label>
+                    Z
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01011216" name="郑州">郑州</a><a href="javascript:void(0)" target="_blank" id="pCity01010721" name="珠海">珠海</a></li>
+                  <li>
+                    <label>
+                    港澳台:
+                    </label>
+                    <a href="javascript:void(0)" target="_blank" id="pCity01013101" name="香港">香港</a><a href="javascript:void(0)" target="_blank" id="pCity01010301" name="澳门">澳门</a><a href="javascript:void(0)" target="_blank" id="pCity01012801" name="台北">台北</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--国内城市 150个 end-->
+            <!--国际城市 1500个 start-->
+            <div style="display: none;" class="tabBody">
+              <ul class="bList">
+                <li>
+                  <span class="current">亚  洲</span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity01010101" name="北京">北京</a><a href="javascript:void(0)" target="_blank" id="pCity01012601" name="上海">上海</a><a href="javascript:void(0)" target="_blank" id="pCity01013101" name="香港">香港</a><a href="javascript:void(0)" target="_blank" id="pCity01330101" name="新加坡">新加坡</a><a href="javascript:void(0)" target="_blank" id="pCity01380101" name="河内">河内</a><a href="javascript:void(0)" target="_blank" id="pCity01210101" name="首尔">首尔</a><a href="javascript:void(0)" target="_blank" id="pCity01240101" name="吉隆坡">吉隆坡</a><a href="javascript:void(0)" target="_blank" id="pCity01370101" name="雅加达">雅加达</a><a href="javascript:void(0)" target="_blank" id="pCity01300101" name="曼谷">曼谷</a><a href="javascript:void(0)" target="_blank" id="pCity01012801" name="台北">台北</a><a href="javascript:void(0)" target="_blank" id="pCity01180101" name="平壤">平壤</a><a href="javascript:void(0)" target="_blank" id="pCity01140201" name="新德里">新德里</a><a href="javascript:void(0)" target="_blank" id="pCity01250101" name="乌兰巴托">乌兰巴托</a><a href="javascript:void(0)" target="_blank" id="pCity01260101" name="仰光">仰光</a><a href="javascript:void(0)" target="_blank" id="pCity01230101" name="万象">万象</a><a href="javascript:void(0)" target="_blank" id="pCity01150201" name="喀布尔">喀布尔</a></li>
+                <li>
+                  <span class=""> 欧  洲</span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity02230101" name="伦敦">伦敦</a><a href="javascript:void(0)" target="_blank" id="pCity02050201" name="巴黎">巴黎</a><a href="javascript:void(0)" target="_blank" id="pCity02020101" name="哥本哈根">哥本哈根</a><a href="javascript:void(0)" target="_blank" id="pCity02100101" name="马德里">马德里</a><a href="javascript:void(0)" target="_blank" id="pCity02040101" name="莫斯科">莫斯科</a><a href="javascript:void(0)" target="_blank" id="pCity02010101" name="布鲁塞尔">布鲁塞尔</a><a href="javascript:void(0)" target="_blank" id="pCity02090201" name="日内瓦">日内瓦</a><a href="javascript:void(0)" target="_blank" id="pCity02030101" name="柏林">柏林</a><a href="javascript:void(0)" target="_blank" id="pCity02210101" name="雅典">雅典</a><a href="javascript:void(0)" target="_blank" id="pCity02070101" name="阿姆斯特丹">阿姆斯特丹</a><a href="javascript:void(0)" target="_blank" id="pCity02120101" name="维也纳">维也纳</a><a href="javascript:void(0)" target="_blank" id="pCity02220301" name="罗马">罗马</a></li>
+                <li>
+                  <span class="">美  洲</span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity03051101" name="纽约">纽约</a><a href="javascript:void(0)" target="_blank" id="pCity03010201" name="多伦多">多伦多</a><a href="javascript:void(0)" target="_blank" id="pCity03010601" name="埃德蒙顿">埃德蒙顿</a><a href="javascript:void(0)" target="_blank" id="pCity03010101" name="渥太华">渥太华</a><a href="javascript:void(0)" target="_blank" id="pCity03060101" name="墨西哥城">墨西哥城</a><a href="javascript:void(0)" target="_blank" id="pCity03051201" name="华盛顿">华盛顿</a><a href="javascript:void(0)" target="_blank" id="pCity04010101" name="布宜诺斯艾利斯">布宜诺斯艾利斯</a><a href="javascript:void(0)" target="_blank" id="pCity03050601" name="芝加哥">芝加哥</a><a href="javascript:void(0)" target="_blank" id="pCity04050101" name="加拉加斯">加拉加斯</a><a href="javascript:void(0)" target="_blank" id="pCity03050401" name="洛杉矶">洛杉矶</a><a href="javascript:void(0)" target="_blank" id="pCity06020101" name="奥克兰">奥克兰</a><a href="javascript:void(0)" target="_blank" id="pCity04060101" name="圣地亚哥">圣地亚哥</a><a href="javascript:void(0)" target="_blank" id="pCity03050801" name="亚特兰大">亚特兰大</a><a href="javascript:void(0)" target="_blank" id="pCity03050501" name="旧金山">旧金山</a></li>
+                <li>
+                  <span>非  洲</span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity05010101" name="开罗">开罗</a><a href="javascript:void(0)" target="_blank" id="pCity05020101" name="内罗毕">内罗毕</a><a href="javascript:void(0)" target="_blank" id="pCity05120201" name="开普敦">开普敦</a><a href="javascript:void(0)" target="_blank" id="pCity05130101" name="达喀尔">达喀尔</a><a href="javascript:void(0)" target="_blank" id="pCity05030101" name="卡萨布兰卡">卡萨布兰卡</a></li>
+				  <li>
+                  <span>
+                  大洋洲
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity06010401" name="悉尼">悉尼</a><a href="javascript:void(0)" target="_blank" id="pCity06010301" name="墨尔本">墨尔本</a><a href="javascript:void(0)" target="_blank" id="pCity06010101" name="珀斯">珀斯</a><a href="javascript:void(0)" target="_blank" id="pCity06020201" name="惠灵顿">惠灵顿</a><a href="javascript:void(0)" target="_blank" id="pCity06010601" name="堪培拉">堪培拉</a><a href="javascript:void(0)" target="_blank" id="pCity06020301" name="克赖斯特彻奇">克赖斯特彻奇</a><a href="javascript:void(0)" target="_blank" id="pCity06020101" name="奥克兰">奥克兰</a></li>
+              </ul>
+            </div>
+            <!--国际城市 1500个 end-->
+            <!--热门景点 50个 start-->
+            <div style="display: none;" class="tabBody">
+              <ul class="bList">
+                <li>
+                  <span>
+                  登山行
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity0101021101" name="黄山">黄山</a><a href="javascript:void(0)" target="_blank" id="pCity0101270902" name="峨眉山">峨眉山</a><a href="javascript:void(0)" target="_blank" id="pCity0101150209" name="岳麓山">岳麓山</a><a href="javascript:void(0)" target="_blank" id="pCity0101120309" name="云台山">云台山</a><a href="javascript:void(0)" target="_blank" id="pCity0101160202" name="长白山">长白山</a></li>
+                <li>
+                  <span>
+                  闲海边
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity0101101401" name="三亚亚龙湾">三亚亚龙湾</a><a href="javascript:void(0)" target="_blank" id="pCity01012313" name="威海国际海水浴场">威海国际海水浴场</a><a href="javascript:void(0)" target="_blank" id="pCity01012315" name="烟台海阳万米海滩浴场">烟台海阳万米海滩浴场</a><a href="javascript:void(0)" target="_blank" id="pCity0101070603" name="惠州大亚湾">惠州大亚湾</a><a href="javascript:void(0)" target="_blank" id="pCity0101110701" name="北戴河">北戴河</a></li> 
+                <li>
+                  <span>
+                  都市风
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity0101010106" name="北京颐和园">北京颐和园</a><a href="javascript:void(0)" target="_blank" id="pCity01011303" name="哈尔滨冰雪大世界">哈尔滨冰雪大世界</a><a href="javascript:void(0)" target="_blank" id="pCity0101290114" name="天津古文化街">天津古文化街</a><a href="javascript:void(0)" target="_blank" id="pCity01011904" name="大连星海广场">大连星海广场</a><a href="javascript:void(0)" target="_blank" id="pCity0101071505" name="深圳世界之窗">深圳世界之窗</a><a href="javascript:void(0)" target="_blank" id="pCity0101260113" name="上海东方明珠 ">上海东方明珠 </a></li>
+                <li>
+                  <span>
+                  逛古城
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity0101340306" name="乌镇古城">乌镇古城</a><a href="javascript:void(0)" target="_blank" id="pCity01013308" name="丽江古城">丽江古城</a><a href="javascript:void(0)" target="_blank" id="pCity0101150902" name="凤凰古城">凤凰古城</a><a href="javascript:void(0)" target="_blank" id="pCity0101240404" name="平遥古城">平遥古城</a><a href="javascript:void(0)" target="_blank" id="pCity0101060602" name="敦煌古城">敦煌古城</a><a href="javascript:void(0)" target="_blank" id="pCity0101170608" name="苏州同里">苏州同里</a></li>
+                <li>
+                  <span>
+                  风景区
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity01013314" name="西双版纳">西双版纳</a><a href="javascript:void(0)" target="_blank" id="pCity0101270105" name="九寨沟">九寨沟</a><a href="javascript:void(0)" target="_blank" id="pCity01011513" name="张家界">张家界</a><a href="javascript:void(0)" target="_blank" id="pCity0101321305" name="天山天池">天山天池</a><a href="javascript:void(0)" target="_blank" id="pCity0101240104" name="太行山大峡谷">太行山大峡谷</a><a href="javascript:void(0)" target="_blank" id="pCity0101100803" name="海南火山口">海南火山口</a></li>
+                <li>
+                  <span>
+                  乡野游
+                  </span>
+                  <a href="javascript:void(0)" target="_blank" id="pCity0101010104" name="北京十渡">北京十渡</a><a href="javascript:void(0)" target="_blank" id="pCity01010901" name="黄果树瀑布">黄果树瀑布</a><a href="javascript:void(0)" target="_blank" id="pCity0101340102" name="千岛湖">千岛湖</a><a href="javascript:void(0)" target="_blank" id="pCity01012509" name="延安枣园">延安枣园</a><a href="javascript:void(0)" target="_blank" id="pCity01011808" name="婺源">婺源</a></li>
+              </ul>
+            </div>
+            <!--热门景点 50个 end-->
+          </div>
+        </div><!--[if !IE]>|xGv00|ae09f7eb1e5bbd6e65d822c68d52cb36<![endif]-->
+      </div>
+    </div>
+
+    <!--气象视频-->
+    <div id="qxsp" class="mod1">
+      <div class="hd modTitle2">
+        <h2><a href="#" title="气象视频">气象视频</a></h2> <span class="fr"><a title="更多" href="http://www.mywtv.cn/" target="_blank">更多</a></span>
+      </div>
+      <div class="bd">
+<ul>
+  <!--utf-8-->
+<li><a href="http://www.mywtv.cn/2013-03/31/content_867088.htm" target="_blank">明后天华南仍将会有强降雨</a></li>
+
+<li><a href="http://www.mywtv.cn/2013-03/31/content_866902.htm" target="_blank">南方多雨 硅胶包果冻包受追捧</a></li>
+
+<li><a href="http://www.mywtv.cn/2013-04/01/content_867243.htm" target="_blank">汕昆广昆高速粤桂段有暴雨</a></li>
+
+<li><a href="http://www.mywtv.cn/2013-03/31/content_867310.htm" target="_blank">北京雾霾未散雨将至</a></li>
+
+<li><a href="http://www.mywtv.cn/2013-04/01/content_867308.htm" target="_blank">重庆持续晴热少雨 樱桃提前熟</a></li>
+<!--[if !IE]>|xGv00|bc7f374bf44ece5aa908915896f45ae9<![endif]-->
+</ul>
+
+	  </div>
+    </div>
+  </div>
+</div>
+<!-- 便捷查询 结束 -->
+<!-- 版权页面片 开始 -->
+<style>
+.tcopyright {width:960px;margin:0 auto;padding:8px 0;font-size:12px;line-height:28px;color:#333; text-align:center; overflow:hidden;clear:both;}
+.tcopyright .en{font-family:Arial;}
+.tcopyright a{color:#333;text-decoration: none;}
+.tcopyright a:hover{color:#bd0a01;text-decoration: underline;}
+</style>
+<div id="tcopyright" class="tcopyright" bossZone="footer" role="contentinfo">
+	<div>
+		<a href="http://www.tencent.com/" target="_blank" rel="nofollow">关于腾讯</a> | <a href="http://www.tencent.com/index_e.shtml" target="_blank" rel="nofollow">About Tencent</a> | <a href="http://www.qq.com/contract.shtml" target="_blank" rel="nofollow">服务协议</a> | <a href="http://www.qq.com/privacy.htm" target="_blank" rel="nofollow">隐私权保护</a> | <a href="http://open.qq.com/" target="_blank" rel="nofollow">开放平台</a> | <a href="http://www.tencentmind.com/" target="_blank" rel="nofollow">广告服务</a> | <a href="http://hr.tencent.com/" target="_blank" rel="nofollow">腾讯招聘</a> | <a href="http://gongyi.qq.com/" target="_blank" rel="nofollow">腾讯公益</a> | <a href="http://service.qq.com/" target="_blank" rel="nofollow">客服中心</a> | <a href="http://www.qq.com/map/" target="_blank" rel="nofollow">网站导航</a>
+	</div>
+  	<div class="en">Copyright &copy; 1998 - 2013 Tencent. All Rights Reserved</div>
+    <div>
+		<a href="http://www.tencent.com/" target="_blank" rel="nofollow">腾讯公司</a> <a href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank" rel="nofollow">版权所有</a>
+	</div>
+</div><!--[if !IE]>|xGv00|0d663f51babc848894a29bc5b57abc85<![endif]-->
+<!-- 版权页面片 结束 -->
+<!--页卡-->
+<script type="text/javascript">
+	Qfast.add('fx', { path: "http://mat1.gtimg.com/joke/Koala/plusfx1.0.min.js", type: "js" });
+    Qfast.add('widgets', { path: "http://weather.news.qq.com/index2012/js/Terminator-anan.js", type: "js", requires: ['fx'] });
+    Qfast(false, 'widgets', function () {
+        K.tabs({
+            id: 'tab0',   //页卡包裹id  
+            tabId: "cardBtn0", //页卡按钮  
+            tabCn: '.tabBtn', //页面点击class  
+            conId: "cardBody0",  //** 页卡内容包裹id                
+            conCn: '.tabBody', //** 页卡内容配置class           
+            eType: 'mouseover', //切换鼠标事件  
+            auto: 0,   //是否自动切换  
+            current: 0, //当前显示第几个                 
+            interval: 2000  //** 停顿时间  
+        })
+        K.tabs({
+            id: 'poptab0',   //页卡包裹id  
+            tabId: "popcardBtn0", //页卡按钮  
+            tabCn: '.tabBtn', //页面点击class  
+            conId: "popcardBody0",  //** 页卡内容包裹id                
+            conCn: '.tabBody', //** 页卡内容配置class           
+            eType: 'mouseover', //切换鼠标事件  
+            auto: 0,   //是否自动切换  
+            current: 0, //当前显示第几个                 
+            interval: 2000  //** 停顿时间  
+        })
+        K.tabs({
+            id: 'tab',   //页卡包裹id  
+            tabId: "cardBtn1", //页卡按钮  
+            tabCn: '.tabBtn', //页面点击class  
+            conId: "cardBody1",  //** 页卡内容包裹id                
+            conCn: '.tabBody', //** 页卡内容配置class           
+            eType: 'mouseover', //切换鼠标事件  
+            auto: 0,   //是否自动切换  
+            current: 0, //当前显示第几个                 
+            interval: 2000  //** 停顿时间  
+        })
+        K.tabs({
+            id: 'tab3',   //页卡包裹id  
+            tabId: "cardBtn3", //页卡按钮  
+            tabCn: '.tabBtn', //页面点击class  
+            conId: "cardBody3",  //** 页卡内容包裹id                
+            conCn: '.tabBody', //** 页卡内容配置class           
+            eType: 'mouseover', //切换鼠标事件  
+            auto: 0,   //是否自动切换  
+            current: 0, //当前显示第几个                 
+            interval: 2000  //** 停顿时间  
+        })
+    })  
+</script>
+<script type="text/javascript">    
+   
+    Qfast(false, 'widgets', function () {
+        K.scroll({
+            id: "ScA3",                          //滚动区域包裹id  
+            effect: "scroll",            //效果配置  
+            conID: "ISL_Cont1",      //实际滚动区域包裹id  
+            scrWrap: ".count",       //实际滚动区域配置class  
+            scrElem: "li",               //滚动单元元素配置    
+            scrNum: 4,                       //触发一次滚动事件走过的滚动元素个数   
+            showNum: 4,                  //滚动区域显示滚动元素的个数           
+            auto: 0,                             //自动滚动是否开启  
+            vertical: "left",                //滚动方向  
+            loop: true,                     //是否循环滚  
+            interval: 1000,              //自动滚动时间间隔  
+            bns: ['.prev', '.next'], //滚动配置按钮class             
+            prevMouseImg: "http://mat1.gtimg.com/joke/Koala/pic/btn2.jpg",  //鼠标悬停按钮显示按钮图片路径  
+            prevStopImg: "http://mat1.gtimg.com/joke/Koala/pic/btn1_n.jpg",  //滚动停止显示按钮图片路径  
+            nextMouseImg: "http://mat1.gtimg.com/joke/Koala/pic/btn4.jpg",  //鼠标悬停按钮显示按钮图片路径  
+            nextStopImg: "http://mat1.gtimg.com/joke/Koala/pic/btn3_n.png" //滚动停止显示按钮图片路径//鼠标悬停按钮显示按钮图片路径  
+        })
+    })  
+</script>
+
+<!--天气搜索功能-->
+<script type="text/javascript">
+    Qfast.add('weatherSearch', { path: "http://weather.news.qq.com/index2012/js/autoSearch_v3.js", type: "js", requires: ['weatherInfo'] });
+    Qfast(false, 'weatherSearch', function () {
+
+        var autoSearch0 = new AutoSearch('wSearch', 'cityTabChooice', 'sList');
+        autoSearch0.init();
+
+        var autoSearch1 = new AutoSearch('popSearchInput', 'addCityPopTab', 'addCityPopList');
+        autoSearch1.init();
+
+    })  
+</script>
+<!--城市名title-->
+<script type="text/javascript">
+	window.onload=function(){
+		var cityNameTitle=document.getElementById('wCity').innerHTML;
+		document.title=cityNameTitle+'城市天气预报_天气频道_腾讯网';
+	}
+</script>
+<!--微博js-->
+<script src="http://mat1.gtimg.com/www/mb/js/portal/mi.Portal_2012111404.js" charset="utf-8"></script><!--[if !IE]>|xGv00|e1fd6562019845fa905fca8262913986<![endif]-->
+<!--微博功能脚本-->
+<script type="text/javascript">
+    _MUI.ready(function () {
+        new _MI.Follow('tab3', 'qqcom.dp.followone'); //最后一个参数为统计功能，请从新命名，无需请空 
+    })  
+</script>
+<script>    try { QosS.endCheck(); } catch (e) { }</script>
+</body>
+</html><!--[if !IE]>|xGv00|7ea59c1578beee73dbec3da7c152b05c<![endif]-->
