@@ -39,6 +39,7 @@ $cs = json_decode($curstate);
 
 */
 
+//get nmc
 $prv = "GD";
 $city = "shenzhen";
 $add = "http://www.nmc.gov.cn/publish/forecast/A$prv/$city.html";
@@ -62,8 +63,8 @@ foreach($scr as $s)
 	$rjs = $rjs.$s->innertext;
      }
 }
-preg_match("/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/i", $rjs,  $matches); 
-$udpateTime = $matches[0];
+echo preg_match("/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/", $rjs,  $matches); 
+$updateTime = $matches[0];
 echo "update time: ".$updateTime."\n";
 $curstate = $ifm->find('div.city_wind div.temp_pic');
 foreach($curstate as $cur)
