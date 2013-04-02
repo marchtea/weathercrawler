@@ -5,37 +5,6 @@ require('simple_html_dom.php');
 
 //add comment again
 /*
-$id = '101010100';
-$add = "http://www.weather.com.cn/weather/$id.shtml";
-$nowaddr = "http://www.weather.com.cn/data/sk/$id.html";
-$html = file_get_html($add);
-echo "get html\n";
-$curstate = file_get_contents($nowaddr);
-echo "get current state\n";
-
-
-//6小时精细化预报
-$sixharray = $html->find('div#weather6h');
-foreach($sixharray as $sixh)
-{
-    //每6小时的数据
-    $tables = $sixh->find('table');
-    foreach($tables as $table)
-    {
-	$to = $table->find('tr th');
-	$rtime = $to[0]->innertext;//发布时间
-	$tmp = $table->find('tr td a');//获取温度信息以及风向信息
-	$st = $tmp[1]->innertext;
-	$h = $tmp[2]->innertext;
-	$l = $tmp[3]->innertext;
-	$w = $tmp[4]->innertext;
-	
-	echo "time: $rtime, 状态: $st, 温度: $l~$h, other:$w\n";
-		
-    }
-}
-echo $curstate;
-$cs = json_decode($curstate);
 
 */
 
