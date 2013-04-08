@@ -56,14 +56,14 @@ $qqcode2weather = array(
 	'02' => '阴',
 	'03' => '阵雨',
 	'04' => '雷阵雨',
-	'05' => '雷阵雨并有冰雹',
+	'05' => '冰雹',
 	'06' => '雨夹雪',
 	'07' => '小雨',
 	'08' => '中雨',
 	'09' => '大雨',
 	'10' => '暴雨',
-	'11' => '大暴雪',
-	'12' => '特大暴雪',
+	'11' => '大暴雨',
+	'12' => '特大暴雨',
 	'13' => '阵雪',
 	'14' => '小雪',
 	'15' => '中雪',
@@ -123,7 +123,7 @@ foreach($cities as $cityname => $city)
 function getWeather($id)
 {
 	$add = "http://www.weather.com.cn/weather/$id.shtml";
-	$nowaddr = "http://www.weather.com.cn/data/sk/$id.html";
+	$nowaddr = "compress.zlib://http://www.weather.com.cn/data/sk/$id.html";
 	echo '获取网页ing..';
 	$html = file_get_html($add);
 	$curstate = file_get_contents($nowaddr);
@@ -137,9 +137,9 @@ function getWeather($id)
 
 	//6小时精细化预报
 	$sixharray = $html->find('div#weather6h', 0);
-	$header = $sixharray->find('h1#weatheH1', 0);
-	preg_match('/\d{4}-\d{2}-\d{2}/', $header->innertext, $foredate);
-	preg_match('/\d{2}\s+:\d{2}/', $header->innertext, $foretime);
+	$header = $sixharray->find('h1.weatheH1', 0);
+	preg_match('/\d{4}-\d{2}-\d{2}/', superTrim($header->innertext), $foredate);
+	preg_match('/\d{2}:\d{2}/', superTrim($header->innertext), $foretime);
 		//每6小时的数据
 	$tables = $sixharray->find('table');
 	$forecast = array();
@@ -154,8 +154,8 @@ function getWeather($id)
 		$fs->min = superTrim($tmp[3]->innertext);
 		$w = $tmp[4]->innertext;
 		$wa = preg_split('/\s/', $w, -1, PREG_SPLIT_NO_EMPTY);
-		$fs->wd = superTrim($wa[0]);
-		$fs->ws = superTrim($wa[1]);
+		$fs->wd = superTrim($wa[1]);
+		$fs->ws = superTrim($wa[2]);
 
 		//echo "time: $fs->updateTime, 状态: $fs->state, 温度: $fs->min~$fs->max, wind: $fs->wd  $fs->ws\n";
 		$forecast[] = $fs;
@@ -169,15 +169,15 @@ function getWeather($id)
 	$currentStatus->hu = $current->weatherinfo->SD;
 	$cs = new CityStatus;
 	$cs->current = $currentStatus;
-	$cs->foreTime = $foredate[0].$foretime[0];
+	$cs->foreTime = $foredate[0]." ".$foretime[0];
 	$cs->nextsix = $forecast;
 	return $cs;
 }
 
 function getNmc($prv, $city)
 {
-	$add = "http://www.nmc.gov.cn/publish/forecast/A$prv/$city.html";
-	$ifadd = "http://www.nmc.gov.cn/publish/forecast/A$prv/{$city}_iframe.html";
+	$add = "compress.zlib://http://www.nmc.gov.cn/publish/forecast/A$prv/$city.html";
+	$ifadd = "compress.zlib://http://www.nmc.gov.cn/publish/forecast/A$prv/{$city}_iframe.html";
 
 	echo "获取中央气象台数据ing   ";
 	$mainhtml = file_get_html($add);
@@ -261,13 +261,17 @@ function getNmc($prv, $city)
 
 function getQQPanel($id)
 {
+	global $qqcode2weather;
+	global $qqwinddirec;
 	$addr = "http://weather.gtimg.cn/city/$id.js?_ref=";
+	print "获取qq数据";
 	$html = file_get_contents("compress.zlib://".$addr);//由于该页面采用了gzip压缩，因此需要修改url
 	if (!$html)
 	{
 		print "网络连接失败";
 		return false;
 	}
+	print "获取成功\n";
 	preg_match('/\{[\s\S]+\};/', $html, $jsonarray);
 	$jsonarray = substr($jsonarray[0], 0, strlen($jsonarray[0]) - 1);
 	$jsonarray = iconv('gbk', 'utf8', $jsonarray);//json_decode只支持utf8编码...
