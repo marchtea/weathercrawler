@@ -4,3 +4,5 @@
 *.php~
 
 .DS_Store
+
+*.php~

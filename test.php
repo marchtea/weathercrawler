@@ -5,24 +5,32 @@ require("simple_html_dom.php");
 //config
 $cities = array(    //nmc   ,   weather
 	'深圳' => array('nmc' => array('GD', 'shenzhen'),
-				'weather' => '101280601' //http://www.weather.com.cn/weather/xxxxxxxxx.shtml?
+				'weather' => '101280601', //http://www.weather.com.cn/weather/xxxxxxxxx.shtml?
+				'qqpanel' => '01010715' //qq面板上各个城市的ID
 			  ),
 	'厦门' => array('nmc' => array('FJ', 'shamen'),
-				'weather' => '101230201'
+				'weather' => '101230201',
+				'qqpanel' => '01010508'
 			  ),
 	'北京' => array('nmc' => array('BJ', 'beijing'),
+				'weather' => '101010100',
+				'qqpanel' => '01010101'
+			),
+	'沈阳' => array('nmc' => array('LN', 'shenyang'),
 				'weather' => '101010100'
-			  )
+			)
 );
 
 foreach($cities as $cityname => $city)
 {
 	echo "抓取:$cityname 状态:\n";
 	$status = getWeather($city['weather']);	
-	showStatus($status);
+	if ($status)
+		showStatus($status);
 
 	$nmc = getNmc($city['nmc'][0], $city['nmc'][1]);		
-	showStatus($nmc);
+	if ($nmc)
+		showStatus($nmc);
 }
 
 function getWeather($id)
@@ -88,7 +96,12 @@ function getNmc($prv, $city)
 	$mainhtml = file_get_html($add);
 
 	$ifm = file_get_html($ifadd);
-	echo "获取完毕\n";
+	if ($ifm)
+		echo "获取完毕\n";
+	else{
+		print "获取数据失败";
+		return false;
+	}
 
 	//得到实时数据
 	$scr = $ifm->find('script');
@@ -158,6 +171,14 @@ function getNmc($prv, $city)
 	return $cs;
 
 }
+
+function getQQPanel($id)
+{
+	$addr = "http://weather.gtimg.cn/qqpanel/$id.js?_ref=";
+	$html = file_get_contents($addr);
+	//$value
+}
+
 
 function superIconv($str)
 {
