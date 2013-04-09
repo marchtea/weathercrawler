@@ -47,7 +47,15 @@ $cities = array(    //nmc   ,   weather
 	'西安' => array('nmc' => array('SN', 'xian'),
 				'weather' => '101110101',
 				'qqpanel' => '01012507'
-			)
+			),
+	'成都' => array('nmc' => array('SC', 'chengdu'),
+				'weather' => '101270101',
+				'qqpanel' => '01012703'
+			  ),
+	'拉萨' => array('nmc' => array('XZ', 'lasa'),
+				'weather' => '101140101',
+				'qqpanel' => '01013003'
+			  )
 );
 
 $qqcode2weather = array(
