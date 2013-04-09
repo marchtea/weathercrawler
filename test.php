@@ -160,10 +160,17 @@ function getWeather($id)
 		$fs->state = superTrim($tmp[1]->innertext);
 		$fs->max = superTrim($tmp[2]->innertext);
 		$fs->min = superTrim($tmp[3]->innertext);
-		$w = $tmp[4]->innertext;
+		$w = trim($tmp[4]->innertext);
+
 		$wa = preg_split('/\s/', $w, -1, PREG_SPLIT_NO_EMPTY);
-		$fs->wd = superTrim($wa[1]);
-		$fs->ws = superTrim($wa[2]);
+		if ($wa[0] == '?')
+		{
+			$fs->wd = superTrim($wa[1]);
+			$fs->ws = superTrim($wa[2]);
+		}else{
+			$fs->wd = superTrim($wa[0]);
+			$fs->ws = superTrim($wa[1]);
+		}
 
 		//echo "time: $fs->updateTime, 状态: $fs->state, 温度: $fs->min~$fs->max, wind: $fs->wd  $fs->ws\n";
 		$forecast[] = $fs;
