@@ -4,6 +4,7 @@ require("simple_html_dom.php");
 require("public.php");
 
 
+$start = microtime(true);
 //start crawling
 foreach($cities as $cityname => $city)
 {
@@ -29,6 +30,8 @@ foreach($cities as $cityname => $city)
 	}
 	print "\n";	
 }
+$end = microtime(true);
+echo "运行时间: ".($end-$start)."s\n";
 
 function getWeather($id)
 {
@@ -258,7 +261,6 @@ function save2DB($city, $citystatus, $src)
 	global $dbpwd;
 	global $dbschema;
 	global $charset;
-	echo $dbaddr." ".$dbusr." ".$dbpwd." ".$dbschema." ".$charset."\n";
 	$db = new mysqli($dbaddr, $dbusr, $dbpwd, $dbschema);
 	$db->set_charset($charset);
 	$db->autocommit(true);
@@ -272,10 +274,8 @@ function save2DB($city, $citystatus, $src)
 	}else if (strcmp($src ,'qq') == 0){
 		$source = 3;
 	}else{
-		echo "false";
 		return false;
 	}
-	echo $source."\n";
 
 	save2Current($db, $city, $source, $citystatus->current);
 	save2Forecast($db, $city, $source, $citystatus->foreTime, $citystatus->nextsix);

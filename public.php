@@ -79,7 +79,19 @@ $cities = array(    //nmc   ,   weather
 	'拉萨' => array('nmc' => array('XZ', 'lasa'),
 				'weather' => '101140101',
 				'qqpanel' => '01013003'
-			  )
+			),
+	'银川' => array('nmc' => array('NX', 'yinchuan'),
+				'weather' => '101170101',
+				'qqpanel' => '01012104'
+			 ),
+	'太原' => array('nmc' => array('SX', 'taiyuan'),
+				'weather' => '101100101',
+				'qqpanel' => '01012408'
+			),
+	'兰州' => array('nmc' => array('GS', 'lanzhou'),
+				'weather' => '101160101',
+				'qqpanel' => '01010607'
+			)
 );
 
 $qqcode2weather = array(
