@@ -2,6 +2,7 @@
 
 class CityStatus
 {
+	public $name;
 	public $current;
 	public $foreTime; //预测发布的时间
 	public $nextsix;
@@ -133,8 +134,12 @@ $qqcode2weather = array(
 	'35' => '轻雾'
 );
 
+$weathercatalog = array(
+
+);
+
 $qqwinddirec = array(
-	'0' => '无风',
+	'0' => '无持续风向',
 	'1' => '东北风',
 	'2' => '东风',
 	'3' => '东南风',
@@ -145,4 +150,20 @@ $qqwinddirec = array(
 	'8' => '北风',
 	'9' => '旋转不定'
 );
+
+$winddirec = array(
+	'无持续风向' =>0,
+	'东北风' =>1,
+	'东风' =>2,
+	'东南风' =>3,
+	'南风' => 4,
+	'西南风' =>5,
+	'西风' =>6,
+	'西北风' =>7,
+	'北风' =>8,
+	'旋转不定' =>9
+);
+
+
+
 ?>
