@@ -135,7 +135,38 @@ $qqcode2weather = array(
 );
 
 $weathercatalog = array(
-
+	'晴' => array(0),
+	'多云' => array(1),
+	'阴' => array(2),
+	'阵雨' => array(3, 0),
+	'雷阵雨' => array(3, 1),
+	'小雨' => array(3, 2),
+	'中雨' => array(3, 3),
+	'大雨' => array(3, 4),
+	'暴雨' => array(3, 5),
+	'大暴雨' => array(3, 6),
+	'特大暴雨' => array(3, 7),
+	'小雨-中雨' => array(3, 2),
+	'中雨-大雨' => array(3, 3),
+	'大雨-暴雨' => array(3, 4),
+	'暴雨-大暴雨' => array(3, 5),
+	'大暴雨-特大暴雨' => array(3, 6),
+	'雨夹雪' => array(4, 0),
+	'冻雨' => array(4, 1),
+	'阵雪' => array(4, 2),
+	'小雪' => array(4, 3),
+	'中雪' => array(4, 4),
+	'大雪' => array(4, 5),
+	'暴雪' => array(4, 6),
+	'小雪-中雪' => array(4, 2),
+	'中雪-大雪' => array(4, 3),
+	'大雪-暴雪' => array(4, 4),
+	'雾' => array(5),
+	'冰雹' => array(6),
+	'浮尘' => array(7, 0),
+	'扬沙' => array(7, 1),
+	'沙尘暴' => array(7, 2),
+	'强沙尘暴' => array(7, 3)
 );
 
 $qqwinddirec = array(
